@@ -6,9 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
-using Npgsql;
+using Finalprog;
 
-namespace WebApplication3
+namespace Finalprog
 {
 
     public partial class About : Page
@@ -29,12 +29,18 @@ namespace WebApplication3
             NpgsqlCommand cmd = new NpgsqlCommand();
             cmd.Connection = con;
 
+
+
+           
             //Gather Correct Answers
             int count = 0;
             for (int i = 1; i < 21; i++)
             {
                 Boolean result = false;
                 cmd.CommandText = "SELECT correctanswer FROM quizanswers WHERE qcount = " + i + " and quizid = " + quizid + ";";
+
+
+
                 result = (Boolean)cmd.ExecuteScalar();
                 if (result == true)
                 {
@@ -103,6 +109,13 @@ namespace WebApplication3
 
                 //Question 1 Load Answers
                 RadioButtonList1.Items.Clear();
+
+                UserDataClassesDataContext us = new UserDataClassesDataContext();
+
+                var answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 1 && a.qcount == 1)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList1.Items.Add(answer);
+
+
                 cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 1 and qcount = 1";
                 RadioButtonList1.Items.Add(cmd.ExecuteScalar().ToString());
                 cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 1 and qcount = 2";

@@ -28,7 +28,9 @@
                         Meeting Password:<asp:Label ID="passwordLbl" runat="server"></asp:Label>
                     </asp:Panel>
                     <asp:Panel ID="Panel3" runat="server" Height="178px" style="font-size: large" Width="593px">
-                        Course Description:<asp:Label ID="descLbl" runat="server"></asp:Label>
+                        Course Descriptio<asp:Panel ID="videoPanel" runat="server">
+                        </asp:Panel>
+                        n:<asp:Label ID="descLbl" runat="server"></asp:Label>
                     </asp:Panel>
                 </asp:Panel>
             </asp:Panel>
