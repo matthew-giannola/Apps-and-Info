@@ -7,7 +7,6 @@
     <title></title>
 </head>
 <body>
-    <link href="SearchStlye.css" rel="stylesheet" type="text/css" />
     <form id="form1" runat="server">
 
         <style>
@@ -65,7 +64,7 @@
         </div>
 
 
-        <div id ="courseGridview">
+<%--        <div id ="courseGridview">
             <asp:GridView ID="gridviewCourses" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Visible="False">
                 <Columns>
                     <asp:BoundField DataField="Course_ID" HeaderText="Course_ID" SortExpression="Course_ID" />
@@ -78,8 +77,7 @@
                     <asp:BoundField DataField="Book_Link" HeaderText="Book_Link" SortExpression="Book_Link" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Courses Database Connection %>" SelectCommand="SELECT * FROM [CoursesTable]"></asp:SqlDataSource>
-        </div>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Courses Database Connection %>" SelectCommand="SELECT * FROM [CoursesTable]"></asp:SqlDataSource>--%><%--        </div>--%>
       
 
     </form>

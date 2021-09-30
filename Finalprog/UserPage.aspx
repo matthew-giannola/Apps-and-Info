@@ -15,6 +15,11 @@
 <body id="formBack" runat="server">
     <form id="form1" runat="server">
         <div id="formDiv">
+            <asp:Button ID="btnCourse" runat="server" OnClick="btnCourse_Click" Text="Course Search" />
+&nbsp;
+            <br />
+            <br />
+            <br />
             <asp:Label ID="Label1" runat="server" style="font-size: xx-large" Text="Label"></asp:Label>
             <br />
             <br />
