@@ -21,31 +21,17 @@ namespace Finalprog
         private int[] useranswers = new int[5];
         protected void Button1_Click(object sender, EventArgs e)
         {
-
-            var cs = "Host=localhost;Username=postgres;Password=smokey99;Database=Apps Project";
-            NpgsqlConnection npgsqlConnection = new NpgsqlConnection(cs);
-            var con = npgsqlConnection;
-            con.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-
-
-
-           
+            UserDataClassesDataContext us = new UserDataClassesDataContext();
+            
             //Gather Correct Answers
             int count = 0;
             for (int i = 1; i < 21; i++)
             {
-                Boolean result = false;
-                cmd.CommandText = "SELECT correctanswer FROM quizanswers WHERE qcount = " + i + " and quizid = " + quizid + ";";
-
-
-
-                result = (Boolean)cmd.ExecuteScalar();
-                if (result == true)
+                var correctanswer = us.quizanswers.Where((a => a.quizid == quizid && a.qcount == i)).Select(a => a.correctanswer).FirstOrDefault();
+                if (correctanswer == true)
                 {
-                    cmd.CommandText = "SELECT anum FROM quizanswers WHERE qcount = " + i + " and quizid = " + quizid + ";";
-                    correctanswers[count] = (int)cmd.ExecuteScalar();
+                    var anum = us.quizanswers.Where((a => a.quizid == quizid && a.qcount == i)).Select(a => a.anum).FirstOrDefault();
+                    correctanswers[count] = anum;
                     count++;
                 }
             }
@@ -76,98 +62,85 @@ namespace Finalprog
         {
             if(!Page.IsPostBack)
             {
+                UserDataClassesDataContext us = new UserDataClassesDataContext();
                 var quizID = 0;
-                var cs = "Host=localhost;Username=postgres;Password=smokey99;Database=Apps Project";
-                NpgsqlConnection npgsqlConnection = new NpgsqlConnection(cs);
-                var con = npgsqlConnection;
-                con.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "SELECT quizid FROM quizzes WHERE courseid = ";
-                cmd.CommandText += course + ";";
-                cmd.CommandType = CommandType.Text;
-                quizID = (int)cmd.ExecuteScalar();
-                quizid = quizID;
+                var quizidresult = us.quizzes.Where(a => a.courseid == course).Select(a => a.quizid).FirstOrDefault();
+                quizid = quizidresult;
 
-                cmd.CommandText = "SELECT quiztitle FROM quizzes WHERE courseid = ";
-                cmd.CommandText += course + ";";
-                cmd.CommandType = CommandType.Text;
-                quizTitle.Text = cmd.ExecuteScalar().ToString();
+
+                var coursetitle = us.quizzes.Where(a => a.courseid == course).Select(a => a.quiztitle).FirstOrDefault();
+                quizTitle.Text = coursetitle;
 
 
                 //Load Questions
-                cmd.CommandText = "SELECT question FROM quizquestions WHERE quizid = " + quizID + " AND qid = 1;";
-                Question_1.Text = cmd.ExecuteScalar().ToString();
-                cmd.CommandText = "SELECT question FROM quizquestions WHERE quizid = " + quizID + " AND qid = 2;";
-                Question_2.Text = cmd.ExecuteScalar().ToString();
-                cmd.CommandText = "SELECT question FROM quizquestions WHERE quizid = " + quizID + " AND qid = 3;";
-                Question_3.Text = cmd.ExecuteScalar().ToString();
-                cmd.CommandText = "SELECT question FROM quizquestions WHERE quizid = " + quizID + " AND qid = 4;";
-                Question_4.Text = cmd.ExecuteScalar().ToString();
-                cmd.CommandText = "SELECT question FROM quizquestions WHERE quizid = " + quizID + " AND qid = 5;";
-                Question_5.Text = cmd.ExecuteScalar().ToString();
+                var question = us.quizquestions.Where((a => a.quizid == quizid && a.qid == 1)).Select(a => a.question).FirstOrDefault();
+                Question_1.Text = question;
+                question = us.quizquestions.Where((a => a.quizid == quizid && a.qid == 2)).Select(a => a.question).FirstOrDefault();
+                Question_2.Text = question;
+                question = us.quizquestions.Where((a => a.quizid == quizid && a.qid == 3)).Select(a => a.question).FirstOrDefault();
+                Question_3.Text = question;
+                question = us.quizquestions.Where((a => a.quizid == quizid && a.qid == 4)).Select(a => a.question).FirstOrDefault();
+                Question_4.Text = question;
+                question = us.quizquestions.Where((a => a.quizid == quizid && a.qid == 5)).Select(a => a.question).FirstOrDefault();
+                Question_5.Text = question;
 
                 //Question 1 Load Answers
                 RadioButtonList1.Items.Clear();
 
-                UserDataClassesDataContext us = new UserDataClassesDataContext();
+                
 
                 var answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 1 && a.qcount == 1)).Select(a => a.answer).FirstOrDefault();
                 RadioButtonList1.Items.Add(answer);
-
-
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 1 and qcount = 1";
-                RadioButtonList1.Items.Add(cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 1 and qcount = 2";
-                RadioButtonList1.Items.Add(cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 1 and qcount = 3";
-                RadioButtonList1.Items.Add(cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 1 and qcount = 4";
-                RadioButtonList1.Items.Add(cmd.ExecuteScalar().ToString());
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 1 && a.qcount == 2)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList1.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 1 && a.qcount == 3)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList1.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 1 && a.qcount == 4)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList1.Items.Add(answer);
 
                 //Questions 2 Load Answers
                 RadioButtonList2.Items.Clear();
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 2 and qcount = 5";
-                RadioButtonList2.Items.Insert(0, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 2 and qcount = 6";
-                RadioButtonList2.Items.Insert(1, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 2 and qcount = 7";
-                RadioButtonList2.Items.Insert(2, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 2 and qcount = 8";
-                RadioButtonList2.Items.Insert(3, cmd.ExecuteScalar().ToString());
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 2 && a.qcount == 5)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList2.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 2 && a.qcount == 6)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList2.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 2 && a.qcount == 7)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList2.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 2 && a.qcount == 8)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList2.Items.Add(answer);
 
                 //Question 3 Load Answers
                 RadioButtonList3.Items.Clear();
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 3 and qcount = 9";
-                RadioButtonList3.Items.Insert(0, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 3 and qcount = 10";
-                RadioButtonList3.Items.Insert(1, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 3 and qcount = 11";
-                RadioButtonList3.Items.Insert(2, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 3 and qcount = 12";
-                RadioButtonList3.Items.Insert(3, cmd.ExecuteScalar().ToString());
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 3 && a.qcount == 9)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList3.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 3 && a.qcount == 10)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList3.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 3 && a.qcount == 11)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList3.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 3 && a.qcount == 12)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList3.Items.Add(answer);
 
                 //Question 4 Load Answers
                 RadioButtonList4.Items.Clear();
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 4 and qcount = 13";
-                RadioButtonList4.Items.Insert(0, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 4 and qcount = 14";
-                RadioButtonList4.Items.Insert(1, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 4 and qcount = 15";
-                RadioButtonList4.Items.Insert(2, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 4 and qcount = 16";
-                RadioButtonList4.Items.Insert(3, cmd.ExecuteScalar().ToString());
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 4 && a.qcount == 13)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList4.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 4 && a.qcount == 14)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList4.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 4 && a.qcount == 15)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList4.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 4 && a.qcount == 16)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList4.Items.Add(answer);
 
                 //Question 5 Load Answers
                 RadioButtonList5.Items.Clear();
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 5 and qcount = 17";
-                RadioButtonList5.Items.Add(cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 5 and qcount = 18";
-                RadioButtonList5.Items.Insert(1, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 5 and qcount = 19";
-                RadioButtonList5.Items.Insert(2, cmd.ExecuteScalar().ToString());
-                cmd.CommandText = "SELECT answer FROM quizanswers WHERE quizid = " + quizID + "and qqid = 5 and qcount = 20";
-                RadioButtonList5.Items.Insert(3, cmd.ExecuteScalar().ToString());
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 5 && a.qcount == 17)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList5.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 5 && a.qcount == 18)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList5.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 5 && a.qcount == 19)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList5.Items.Add(answer);
+                answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 5 && a.qcount == 20)).Select(a => a.answer).FirstOrDefault();
+                RadioButtonList5.Items.Add(answer);
             }
             else
             {
