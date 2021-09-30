@@ -39,13 +39,17 @@
 
                <div id ="searchBox">
                     <asp:TextBox class="outer" ID="txtSearch" runat="server" BorderStyle="Groove"></asp:TextBox>
+                    <br />
+                    <asp:Button class="outer" ID="btnNav" runat="server" OnClick="ButtonNav_Click" Text="Course Page" BorderStyle="Groove" Visible="False" />
+                    <br />
+                    <br />
                 </div>
 
 
                 <div id ="searchDropdown">
                      <asp:DropDownList ID="drpSearchType" 
                          runat="server" 
-                         class="outer">
+                         class="outer" Visible="False">
                      <asp:ListItem>--Select--</asp:ListItem>
                      <asp:ListItem Value="Course_ID">Course ID</asp:ListItem>
                      <asp:ListItem Value="Course_Name">Course Name</asp:ListItem>

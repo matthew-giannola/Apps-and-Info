@@ -22,7 +22,7 @@ namespace Finalprog
         protected void Button1_Click(object sender, EventArgs e)
         {
             UserDataClassesDataContext us = new UserDataClassesDataContext();
-            
+
             //Gather Correct Answers
             int count = 0;
             for (int i = 1; i < 21; i++)
@@ -36,31 +36,48 @@ namespace Finalprog
                 }
             }
 
-        //    //Gather user answers
-        //    useranswers[0] = RadioButtonList1.SelectedIndex;
-        //    useranswers[1] = RadioButtonList2.SelectedIndex;
-        //    useranswers[2] = RadioButtonList3.SelectedIndex;
-        //    useranswers[3] = RadioButtonList4.SelectedIndex;
-        //    useranswers[4] = RadioButtonList5.SelectedIndex;
+            //    //Gather user answers
+            //    useranswers[0] = RadioButtonList1.SelectedIndex;
+            //    useranswers[1] = RadioButtonList2.SelectedIndex;
+            //    useranswers[2] = RadioButtonList3.SelectedIndex;
+            //    useranswers[3] = RadioButtonList4.SelectedIndex;
+            //    useranswers[4] = RadioButtonList5.SelectedIndex;
 
-        //    //Compare Answers
-        //    for (int i = 0; i < 5; i++)
-        //    {
-        //        if (useranswers[i] == correctanswers[i])
-        //        {
-        //            score++;
-        //        }
-        //    }
+            //    //Compare Answers
+            //    for (int i = 0; i < 5; i++)
+            //    {
+            //        if (useranswers[i] == correctanswers[i])
+            //        {
+            //            score++;
+            //        }
+            //    }
 
-        //    //Display Score
-        //    scoreLabel.Visible = true;
-        //    scoreLabel.Text = score + "/" + total;
-        //    Button1.Enabled = false;
-        //}
+            //    //Display Score
+            //    scoreLabel.Visible = true;
+            //    scoreLabel.Text = score + "/" + total;
+            //    Button1.Enabled = false;
+            //}        
+
+            //private void EnableViewState(bool v)
+            //{
+
+            //}
+
+            //protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+            //{
+            //    int index = 0;
+            //    index = RadioButtonList1.SelectedIndex;
+            //    RadioButtonList1.SelectedIndex = index;
+            //}
+
+            //protected void RadioButtonList5_SelectedIndexChanged(object sender, EventArgs e)
+            //{
+        }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 UserDataClassesDataContext us = new UserDataClassesDataContext();
                 var quizID = 0;
@@ -84,10 +101,10 @@ namespace Finalprog
                 question = us.quizquestions.Where((a => a.quizid == quizid && a.qid == 5)).Select(a => a.question).FirstOrDefault();
                 Question_5.Text = question;
 
-        //        //Question 1 Load Answers
-        //        RadioButtonList1.Items.Clear();
+                //        //Question 1 Load Answers
+                //        RadioButtonList1.Items.Clear();
 
-                
+
 
                 var answer = us.quizanswers.Where((a => a.quizid == quizid && a.qqid == 1 && a.qcount == 1)).Select(a => a.answer).FirstOrDefault();
                 RadioButtonList1.Items.Add(answer);
@@ -156,23 +173,6 @@ namespace Finalprog
                 index = RadioButtonList5.SelectedIndex;
                 RadioButtonList5.SelectedIndex = index;
             }
-        }
-
-        //private void EnableViewState(bool v)
-        //{
-
-        //}
-
-        //protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int index = 0;
-        //    index = RadioButtonList1.SelectedIndex;
-        //    RadioButtonList1.SelectedIndex = index;
-        //}
-
-        //protected void RadioButtonList5_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
         }
     }
 }
