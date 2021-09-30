@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Finalprog {
-    
-    
-    public partial class UserPage {
-        
+namespace Finalprog
+{
+
+
+    public partial class UserPage
+    {
+
         /// <summary>
         /// formBack control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Finalprog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl formBack;
-        
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -29,7 +31,16 @@ namespace Finalprog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
+        /// <summary>
+        /// btnCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCourse;
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace Finalprog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// StatusText control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace Finalprog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StatusText;
-        
+
         /// <summary>
         /// btnRed control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace Finalprog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRed;
-        
+
         /// <summary>
         /// btnGreen control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace Finalprog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGreen;
-        
+
         /// <summary>
         /// btnBlue control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace Finalprog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBlue;
-        
+
         /// <summary>
         /// btnWhite control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace Finalprog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnWhite;
-        
+
         /// <summary>
         /// btnLogout control.
         /// </summary>

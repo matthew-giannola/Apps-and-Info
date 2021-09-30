@@ -33,7 +33,7 @@ namespace Finalprog
         }
         public void updateCourse(Int32 courseId)
         {
-            
+
         }
 
         protected void testButton_Click(object sender, EventArgs e)

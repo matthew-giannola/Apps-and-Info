@@ -98,5 +98,10 @@ namespace Finalprog
                        select f).SingleOrDefault();
             eo.status = StatusText.Text;
         }
+
+        protected void btnCourse_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SearchPage.aspx");
+        }
     }
 }

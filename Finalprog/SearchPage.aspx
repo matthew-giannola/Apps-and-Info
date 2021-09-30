@@ -7,7 +7,6 @@
     <title></title>
 </head>
 <body>
-    <link href="SearchStlye.css" rel="stylesheet" type="text/css" />
     <form id="form1" runat="server">
 
         <style>
@@ -40,13 +39,17 @@
 
                <div id ="searchBox">
                     <asp:TextBox class="outer" ID="txtSearch" runat="server" BorderStyle="Groove"></asp:TextBox>
+                    <br />
+                    <asp:Button class="outer" ID="btnNav" runat="server" OnClick="ButtonNav_Click" Text="Course Page" BorderStyle="Groove" Visible="False" />
+                    <br />
+                    <br />
                 </div>
 
 
                 <div id ="searchDropdown">
                      <asp:DropDownList ID="drpSearchType" 
                          runat="server" 
-                         class="outer">
+                         class="outer" Visible="False">
                      <asp:ListItem>--Select--</asp:ListItem>
                      <asp:ListItem Value="Course_ID">Course ID</asp:ListItem>
                      <asp:ListItem Value="Course_Name">Course Name</asp:ListItem>
@@ -65,7 +68,7 @@
         </div>
 
 
-        <div id ="courseGridview">
+<%--        <div id ="courseGridview">
             <asp:GridView ID="gridviewCourses" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Visible="False">
                 <Columns>
                     <asp:BoundField DataField="Course_ID" HeaderText="Course_ID" SortExpression="Course_ID" />
@@ -78,8 +81,7 @@
                     <asp:BoundField DataField="Book_Link" HeaderText="Book_Link" SortExpression="Book_Link" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Courses Database Connection %>" SelectCommand="SELECT * FROM [CoursesTable]"></asp:SqlDataSource>
-        </div>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Courses Database Connection %>" SelectCommand="SELECT * FROM [CoursesTable]"></asp:SqlDataSource>--%><%--        </div>--%>
       
 
     </form>

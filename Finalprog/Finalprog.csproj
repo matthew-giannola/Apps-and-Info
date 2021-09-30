@@ -73,6 +73,7 @@
       <DependentUpon>Users.mdf</DependentUpon>
     </Content>
     <Content Include="Course Page.aspx" />
+    <Content Include="CoursePage.aspx" />
     <Content Include="CreateUser.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Login.aspx" />
@@ -88,6 +89,13 @@
     </Compile>
     <Compile Include="Course Page.aspx.designer.cs">
       <DependentUpon>Course Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CoursePage.aspx.cs">
+      <DependentUpon>CoursePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoursePage.aspx.designer.cs">
+      <DependentUpon>CoursePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
