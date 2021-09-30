@@ -16,14 +16,6 @@
       <Column Name="color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Classes" Member="Classes">
-    <Type Name="Class">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="videourl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="Class_quizze" Member="quizzes" ThisKey="Id" OtherKey="courseid" Type="quizze" />
-    </Type>
-  </Table>
   <Table Name="dbo.quizanswers" Member="quizanswers">
     <Type Name="quizanswer">
       <Column Name="aid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -51,6 +43,15 @@
       <Column Name="quizid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="qcount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="quizze_quizquestion" Member="quizze" ThisKey="quizid" OtherKey="quizid" Type="quizze" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Classes" Member="Classes">
+    <Type Name="Class">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="videourl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="professorName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Class_quizze" Member="quizzes" ThisKey="Id" OtherKey="courseid" Type="quizze" />
     </Type>
   </Table>
 </Database>

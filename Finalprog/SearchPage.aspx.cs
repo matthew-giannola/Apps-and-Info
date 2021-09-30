@@ -54,45 +54,78 @@ namespace Finalprog
         private void search()
         {
 
-
             UserDataClassesDataContext us = new UserDataClassesDataContext();
 
-            //string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            //SqlConnection con = new SqlConnection(cs);
-
-            //string column = drpSearchType.SelectedItem.Value;
-            //int columntype = searchColumnType(column);
-
-            //string SearchQuery = "select * from CoursesTable where [Course_ID] like '%" + searchText + "%' or [Course_Name] like '%" + searchText + "%' or [Professor_Name] like '%" + searchText + "%'";
-
-            //SqlCommand DQ = new SqlCommand(SearchQuery, con);
-            //con.Open();
-            //SqlDataReader drDQ = DQ.ExecuteReader();
-
             string searchText = txtSearch.Text;
-            var search = (from c in us.Classes
-                          where (c.description.StartsWith(searchText) || c.Id.ToString().StartsWith(searchText))
-                          select c).FirstOrDefault();
 
-            var result = search.Id + " " + search.description;
-            btnNav.Visible = true;
-            CoursePage.course = search.Id;
+            var searchVariable = searchColumnType(drpSearchType.SelectedValue);
 
-            lblResults.Text = result;
+            if (searchVariable == 1)
+            {
+                var search = (from c in us.Classes
+                              where (c.Id.ToString().StartsWith(searchText))
+                              select c).FirstOrDefault();
 
-            //while (drDQ.Read())
-            //{
-            //    if (searchText == drDQ.GetValue(columntype).ToString())
-            //    {
+                if (search != null && !String.IsNullOrWhiteSpace(txtSearch.Text))
+                {
+                    var result = search.Id + " " + search.description;
+                    btnNav.Visible = true;
+                    CoursePage.course = search.Id;
+                    lblResults.Text = result;
+                    lblSearch.Visible = false; 
+                }
+                else
+                {
+                    lblSearch.Visible = true;
+                    lblSearch.Text = "Value not Found";
+                }
 
-            //        lblResults.Text = drDQ.GetValue(0).ToString();
-            //        for (int i = 1; i <= 6; i++)
-            //        {
+            }
+            else if (searchVariable == 2)
+            {
+                var search = (from c in us.Classes
+                              where (c.description.Contains(searchText))
+                              select c).FirstOrDefault();
 
-            //            lblResults.Text += (" " + drDQ.GetValue(i).ToString());
-            //        }
-            //    }
-            //}
+                if (search != null && !String.IsNullOrWhiteSpace(txtSearch.Text))
+                {
+                    var result = search.Id + " " + search.description;
+                    btnNav.Visible = true;
+                    CoursePage.course = search.Id;
+                    lblResults.Text = result;
+                    lblSearch.Visible = false;
+                }
+                else
+                {
+                    lblSearch.Visible = true;
+                    lblSearch.Text = "Value not Found";
+                }
+            }
+            else if (searchVariable == 3) 
+            {
+                var search = (from c in us.Classes
+                              where (c.professorName.Contains(searchText))
+                              select c).FirstOrDefault();
+
+                if (search != null && !String.IsNullOrWhiteSpace(txtSearch.Text))
+                {
+                    var result = search.Id + " " + search.description;
+                    btnNav.Visible = true;
+                    CoursePage.course = search.Id;
+                    lblResults.Text = result;
+                    lblSearch.Visible = false;
+                }
+                else
+                {
+                    lblSearch.Visible = true;
+                    lblSearch.Text = "Value not Found";
+                }
+            }
+            else if (searchVariable == 0)
+            {
+                lblSearch.Text = "Please select a search parameter";
+                lblSearch.Visible = true;
+            }
 
         }
 
@@ -103,15 +136,19 @@ namespace Finalprog
         {
             if (column == "Course_ID")
             {
-                return 0;
+                return 1;
             }
             else if (column == "Course_Name")
             {
-                return 1;
+                return 2;
+            }
+            else if (column == "Professor_Name")
+            {
+                return 3;
             }
             else
             {
-                return 3;
+                return 0;
             }
         }
 

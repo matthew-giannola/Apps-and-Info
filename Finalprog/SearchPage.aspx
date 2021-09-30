@@ -12,8 +12,8 @@
         <style>
             .center {
         position: absolute;
-        left:50%;
-        top:50%;
+        left:37%;
+        top:35%;
         transform: translateX(-50%) translateY(-50%);
         text-align: left;
         margin: 1px;
@@ -33,12 +33,13 @@
             
 
                 <div id ="searchButton">
-                    <asp:Button class="outer" ID="btnSearch" runat="server" OnClick="Button1_Click" Text="Search" BorderStyle="Groove" />
                 </div>
 
 
                <div id ="searchBox">
-                    <asp:TextBox class="outer" ID="txtSearch" runat="server" BorderStyle="Groove"></asp:TextBox>
+                    <asp:TextBox class="outer" ID="txtSearch" runat="server" BorderStyle="Groove" Width="283px"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;
+                    <asp:Button class="outer" ID="btnSearch" runat="server" OnClick="Button1_Click" Text="Search" BorderStyle="Groove" />
                     <br />
                     <asp:Button class="outer" ID="btnNav" runat="server" OnClick="ButtonNav_Click" Text="Course Page" BorderStyle="Groove" Visible="False" />
                     <br />
@@ -49,12 +50,15 @@
                 <div id ="searchDropdown">
                      <asp:DropDownList ID="drpSearchType" 
                          runat="server" 
-                         class="outer" Visible="False">
+                         class="outer">
                      <asp:ListItem>--Select--</asp:ListItem>
                      <asp:ListItem Value="Course_ID">Course ID</asp:ListItem>
                      <asp:ListItem Value="Course_Name">Course Name</asp:ListItem>
                      <asp:ListItem Value="Professor_Name">Professor Name</asp:ListItem>
                      </asp:DropDownList>
+                     <br />
+                     <br />
+                     <asp:Label ID="lblSearch" runat="server" ForeColor="#CC0000" Text="Please select a search parameter " Visible="False"></asp:Label>
                 </div>
             </div>
 
@@ -64,7 +68,7 @@
             
         <div id ="adminButton">
             <asp:Button ID="btnAdmin" runat="server" Text="Modify Courses" Visible="False" OnClick="btnAdmin_Click" />
-            <asp:Button ID="btnAdmins" runat="server" OnClick="btnAdmins_Click" Text="Enable Admin" />
+            <asp:Button ID="btnAdmins" runat="server" OnClick="btnAdmins_Click" Text="Enable Admin" Visible="False" />
         </div>
 
 

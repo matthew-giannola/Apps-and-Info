@@ -8,12 +8,6 @@
         <elementListCompartment Id="341c6a9b-523d-4ec6-9a0e-f842c61813a6" absoluteBounds="0.76499999999999968, 1.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="53e4256c-d70c-4c20-b8a9-40a4b567ffed" absoluteBounds="3.75, 3.25, 2, 1.3862939453125">
-      <DataClassMoniker Name="/UserDataClassesDataContext/Class" />
-      <nestedChildShapes>
-        <elementListCompartment Id="c4655bc6-641b-475c-a3fa-dea072647562" absoluteBounds="3.7649999999999997, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="b9040842-553e-480d-b965-4c095c7bdf01" absoluteBounds="9.375, 0.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/UserDataClassesDataContext/quizanswer" />
       <nestedChildShapes>
@@ -26,13 +20,6 @@
         <elementListCompartment Id="207a9105-b578-43c2-bc69-1c2dd634c1d7" absoluteBounds="4.765, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.25 : 3.25); (5.25 : 2.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/UserDataClassesDataContext/Class/Class_quizze" />
-      <nodes>
-        <classShapeMoniker Id="53e4256c-d70c-4c20-b8a9-40a4b567ffed" />
-        <classShapeMoniker Id="c3783fba-c101-4e7c-9066-982d3d5228f5" />
-      </nodes>
-    </associationConnector>
     <classShape Id="6a1ae49a-518e-4f4e-a5de-03d4efe99b93" absoluteBounds="5.875, 3.25, 2, 1.5785953776041666">
       <DataClassMoniker Name="/UserDataClassesDataContext/quizquestion" />
       <nestedChildShapes>
@@ -44,6 +31,19 @@
       <nodes>
         <classShapeMoniker Id="c3783fba-c101-4e7c-9066-982d3d5228f5" />
         <classShapeMoniker Id="6a1ae49a-518e-4f4e-a5de-03d4efe99b93" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="629a9b32-e29e-47cc-9395-1b55fd98df35" absoluteBounds="3.5, 3.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/UserDataClassesDataContext/Class" />
+      <nestedChildShapes>
+        <elementListCompartment Id="011f1a06-2354-4fd4-b828-1b506f745005" absoluteBounds="3.5149999999999997, 3.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 3.25); (5.125 : 2.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UserDataClassesDataContext/Class/Class_quizze" />
+      <nodes>
+        <classShapeMoniker Id="629a9b32-e29e-47cc-9395-1b55fd98df35" />
+        <classShapeMoniker Id="c3783fba-c101-4e7c-9066-982d3d5228f5" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

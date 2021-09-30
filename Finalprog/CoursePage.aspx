@@ -12,7 +12,7 @@
             <asp:Label ID="lblCourse" runat="server" Style="font-weight: 700; font-size: xx-large" Text="Label"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="testButton" runat="server" Height="46px" OnClick="testButton_Click" Text="Take Test" Width="85px" />
+            <asp:Button ID="testButton" runat="server" Height="46px" OnClick="testButton_Click" Text="Take Test" Width="85px" Visible="False" />
             <asp:Panel ID="test" runat="server" Height="246px">
             </asp:Panel>
             <br />
