@@ -77,6 +77,7 @@
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Quiz.aspx" />
+    <Content Include="SearchPage.aspx" />
     <Content Include="UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -116,6 +117,13 @@
     </Compile>
     <Compile Include="Quiz.aspx.designer.cs">
       <DependentUpon>Quiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchPage.aspx.cs">
+      <DependentUpon>SearchPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchPage.aspx.designer.cs">
+      <DependentUpon>SearchPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Security.cs" />
     <Compile Include="Site.Master.cs">
