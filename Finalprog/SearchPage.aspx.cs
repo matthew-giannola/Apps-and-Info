@@ -18,14 +18,17 @@ namespace Finalprog
         protected void Page_Load(object sender, EventArgs e)
         {
             UserDataClassesDataContext us = new UserDataClassesDataContext();
+
             user eo = (from f in us.users
                        where f.username == Login.currentUser
                        select f).SingleOrDefault();
             if (eo.role == "Admin")
             {
-                btnAdmin.Visible = true;
+                btnAdmins.Visible = true;
             }
         }
+
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             try
@@ -51,120 +54,33 @@ namespace Finalprog
             setUser("Admin");
         }
 
+
         private void search()
         {
-
             UserDataClassesDataContext us = new UserDataClassesDataContext();
 
             string searchText = txtSearch.Text;
 
-            var searchVariable = searchColumnType(drpSearchType.SelectedValue);
+            var search = (from c in us.Classes
+                          where (c.Id.ToString().StartsWith(searchText) || c.professorName.ToString().StartsWith(searchText) || c.description.ToString().StartsWith(searchText))
+                          select c).FirstOrDefault();
 
-            if (searchVariable == 1)
+            if (search != null && !String.IsNullOrWhiteSpace(txtSearch.Text))
             {
-                var search = (from c in us.Classes
-                              where (c.Id.ToString().StartsWith(searchText))
-                              select c).FirstOrDefault();
-
-                if (search != null && !String.IsNullOrWhiteSpace(txtSearch.Text))
-                {
-                    var result = search.Id + " " + search.description;
-                    btnNav.Visible = true;
-                    CoursePage.course = search.Id;
-                    lblResults.Text = result;
-                    lblSearch.Visible = false; 
-                }
-                else
-                {
-                    lblSearch.Visible = true;
-                    lblSearch.Text = "Value not Found";
-                }
-
-            }
-            else if (searchVariable == 2)
-            {
-                var search = (from c in us.Classes
-                              where (c.description.Contains(searchText))
-                              select c).FirstOrDefault();
-
-                if (search != null && !String.IsNullOrWhiteSpace(txtSearch.Text))
-                {
-                    var result = search.Id + " " + search.description;
-                    btnNav.Visible = true;
-                    CoursePage.course = search.Id;
-                    lblResults.Text = result;
-                    lblSearch.Visible = false;
-                }
-                else
-                {
-                    lblSearch.Visible = true;
-                    lblSearch.Text = "Value not Found";
-                }
-            }
-            else if (searchVariable == 3) 
-            {
-                var search = (from c in us.Classes
-                              where (c.professorName.Contains(searchText))
-                              select c).FirstOrDefault();
-
-                if (search != null && !String.IsNullOrWhiteSpace(txtSearch.Text))
-                {
-                    var result = search.Id + " " + search.description;
-                    btnNav.Visible = true;
-                    CoursePage.course = search.Id;
-                    lblResults.Text = result;
-                    lblSearch.Visible = false;
-                }
-                else
-                {
-                    lblSearch.Visible = true;
-                    lblSearch.Text = "Value not Found";
-                }
-            }
-            else if (searchVariable == 0)
-            {
-                lblSearch.Text = "Please select a search parameter";
-                lblSearch.Visible = true;
-            }
-
-        }
-
-        /// Function to turn the search type to a numero 
-        /// 
-        /// outputs 0 for course ID 1 for Course name and 3 for Professor name (ARGO)
-        private int searchColumnType(String column)
-        {
-            if (column == "Course_ID")
-            {
-                return 1;
-            }
-            else if (column == "Course_Name")
-            {
-                return 2;
-            }
-            else if (column == "Professor_Name")
-            {
-                return 3;
+                var result = search.Id + " " + search.description;
+                btnNav.Visible = true;
+                CoursePage.course = search.Id;
+                lblResults.Text = result;
+                lblSearch.Visible = false;
             }
             else
             {
-                return 0;
+                lblSearch.Visible = true;
+                lblSearch.Text = "Value not Found";
             }
         }
 
 
-        /// Logan knows what this does but im guessing it just makes sure things are supposed to be happening
-        /// 
-        /// output: True: ??? false: ???
-        private bool validiatyCheck()
-        {
-            bool valid = false;
-            if (drpSearchType.SelectedItem.Text != "--Select--")
-            {
-                valid = true;
-            }
-            return valid;
-        }
 
         public void setUser(string usertype)
         {
@@ -174,7 +90,5 @@ namespace Finalprog
                 btnAdmin.Visible = true;
             }
         }
-
-
     }
 }

@@ -68,7 +68,7 @@
             
         <div id ="adminButton">
             <asp:Button ID="btnAdmin" runat="server" Text="Modify Courses" Visible="False" OnClick="btnAdmin_Click" />
-            <asp:Button ID="btnAdmins" runat="server" OnClick="btnAdmins_Click" Text="Enable Admin" Visible="False" />
+            <asp:Button ID="btnAdmins" runat="server" OnClick="btnAdmins_Click" Text="Enable Admin" />
         </div>
 
 
