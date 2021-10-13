@@ -23,11 +23,12 @@ namespace Finalprog
         }
 
 
-        protected void BtnSearch(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                Search();
+                Session["searchTerm"] = txtSearch.Text;
+                Response.Redirect("REsults.aspx");
             }
             catch { }
         }
@@ -39,26 +40,6 @@ namespace Finalprog
         }
 
 
-        private void Search()
-        {
-            UserDataClassesDataContext us = new UserDataClassesDataContext();
-            string searchText = txtSearch.Text;
-            var search = (from c in us.Classes where (c.Id.ToString().StartsWith(searchText) || 
-                c.professorName.ToString().StartsWith(searchText) || c.description.ToString().StartsWith(searchText)) select c).FirstOrDefault();
-
-            if (search != null && !String.IsNullOrWhiteSpace(txtSearch.Text))
-            {
-                var result = search.Id + " " + search.description;
-                btnNav.Visible = true;
-                CoursePage.course = search.Id;
-                lblResults.Text = result;
-                lblSearch.Visible = false;
-            }
-            else
-            {
-                lblSearch.Visible = true;
-                lblSearch.Text = "Value not Found";
-            }
-        }
+        
     }
 }
