@@ -29,15 +29,6 @@
       <Association Name="quizze_quizquestion" Member="quizze" ThisKey="quizid" OtherKey="quizid" Type="quizze" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Classes" Member="Classes">
-    <Type Name="Class">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="videourl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="professorName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="Class_quizze" Member="quizzes" ThisKey="Id" OtherKey="courseid" Type="quizze" />
-    </Type>
-  </Table>
   <Table Name="dbo.Roles" Member="Roles">
     <Type Name="Role">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -61,6 +52,20 @@
       <Column Name="color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="RoleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Role_user" Member="Role1" ThisKey="RoleID" OtherKey="Id" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Classes" Member="Classes">
+    <Type Name="Class">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="videourl" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="professorName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="lectureHours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="studentNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="credits" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="review" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Class_quizze" Member="quizzes" ThisKey="Id" OtherKey="courseid" Type="quizze" />
     </Type>
   </Table>
 </Database>

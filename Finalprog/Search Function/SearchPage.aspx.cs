@@ -14,12 +14,7 @@ namespace Finalprog
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserDataClassesDataContext us = new UserDataClassesDataContext();
-            user eo = (from f in us.users where f.username == Login.currentUser select f).SingleOrDefault();
-            /*if (eo.role == "Admin")
-            {
-                btnAdmins.Visible = true;
-            }*/
+
         }
 
 

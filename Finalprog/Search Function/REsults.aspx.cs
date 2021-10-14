@@ -11,7 +11,11 @@ namespace Finalprog
     public partial class REsults : System.Web.UI.Page
     {
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["searchTerm"] != null)
@@ -22,6 +26,10 @@ namespace Finalprog
         }
 
 
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="searchText"></param>
       private void Search(string searchText)
       {
          UserDataClassesDataContext us = new UserDataClassesDataContext();
@@ -38,6 +46,11 @@ namespace Finalprog
       }
 
 
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="search"></param>
+      /// <returns></returns>
       private bool searchCheck(string search)
       {
          if (search != null && !String.IsNullOrWhiteSpace(txtResultsSearch.Text))
@@ -53,6 +66,11 @@ namespace Finalprog
       }
 
 
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
       protected void btnResultsSearch_Click(object sender, EventArgs e)
       {
             string searchText = txtResultsSearch.Text;

@@ -39,15 +39,15 @@ namespace Finalprog
     partial void Insertquizquestion(quizquestion instance);
     partial void Updatequizquestion(quizquestion instance);
     partial void Deletequizquestion(quizquestion instance);
-    partial void InsertClass(Class instance);
-    partial void UpdateClass(Class instance);
-    partial void DeleteClass(Class instance);
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
     partial void Insertuser(user instance);
     partial void Updateuser(user instance);
     partial void Deleteuser(user instance);
+    partial void InsertClass(Class instance);
+    partial void UpdateClass(Class instance);
+    partial void DeleteClass(Class instance);
     #endregion
 		
 		public UserDataClassesDataContext() : 
@@ -104,14 +104,6 @@ namespace Finalprog
 			}
 		}
 		
-		public System.Data.Linq.Table<Class> Classes
-		{
-			get
-			{
-				return this.GetTable<Class>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Role> Roles
 		{
 			get
@@ -125,6 +117,14 @@ namespace Finalprog
 			get
 			{
 				return this.GetTable<user>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Class> Classes
+		{
+			get
+			{
+				return this.GetTable<Class>();
 			}
 		}
 	}
@@ -689,168 +689,6 @@ namespace Finalprog
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Classes")]
-	public partial class Class : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _description;
-		
-		private string _videourl;
-		
-		private string _professorName;
-		
-		private EntitySet<quizze> _quizzes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OnvideourlChanging(string value);
-    partial void OnvideourlChanged();
-    partial void OnprofessorNameChanging(string value);
-    partial void OnprofessorNameChanged();
-    #endregion
-		
-		public Class()
-		{
-			this._quizzes = new EntitySet<quizze>(new Action<quizze>(this.attach_quizzes), new Action<quizze>(this.detach_quizzes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_videourl", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string videourl
-		{
-			get
-			{
-				return this._videourl;
-			}
-			set
-			{
-				if ((this._videourl != value))
-				{
-					this.OnvideourlChanging(value);
-					this.SendPropertyChanging();
-					this._videourl = value;
-					this.SendPropertyChanged("videourl");
-					this.OnvideourlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_professorName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string professorName
-		{
-			get
-			{
-				return this._professorName;
-			}
-			set
-			{
-				if ((this._professorName != value))
-				{
-					this.OnprofessorNameChanging(value);
-					this.SendPropertyChanging();
-					this._professorName = value;
-					this.SendPropertyChanged("professorName");
-					this.OnprofessorNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_quizze", Storage="_quizzes", ThisKey="Id", OtherKey="courseid")]
-		public EntitySet<quizze> quizzes
-		{
-			get
-			{
-				return this._quizzes;
-			}
-			set
-			{
-				this._quizzes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_quizzes(quizze entity)
-		{
-			this.SendPropertyChanging();
-			entity.Class = this;
-		}
-		
-		private void detach_quizzes(quizze entity)
-		{
-			this.SendPropertyChanging();
-			entity.Class = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Roles")]
 	public partial class Role : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1353,6 +1191,288 @@ namespace Finalprog
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Classes")]
+	public partial class Class : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _description;
+		
+		private string _videourl;
+		
+		private string _professorName;
+		
+		private string _name;
+		
+		private System.Nullable<int> _lectureHours;
+		
+		private System.Nullable<int> _studentNumber;
+		
+		private System.Nullable<int> _credits;
+		
+		private System.Nullable<int> _review;
+		
+		private EntitySet<quizze> _quizzes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OnvideourlChanging(string value);
+    partial void OnvideourlChanged();
+    partial void OnprofessorNameChanging(string value);
+    partial void OnprofessorNameChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnlectureHoursChanging(System.Nullable<int> value);
+    partial void OnlectureHoursChanged();
+    partial void OnstudentNumberChanging(System.Nullable<int> value);
+    partial void OnstudentNumberChanged();
+    partial void OncreditsChanging(System.Nullable<int> value);
+    partial void OncreditsChanged();
+    partial void OnreviewChanging(System.Nullable<int> value);
+    partial void OnreviewChanged();
+    #endregion
+		
+		public Class()
+		{
+			this._quizzes = new EntitySet<quizze>(new Action<quizze>(this.attach_quizzes), new Action<quizze>(this.detach_quizzes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_videourl", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string videourl
+		{
+			get
+			{
+				return this._videourl;
+			}
+			set
+			{
+				if ((this._videourl != value))
+				{
+					this.OnvideourlChanging(value);
+					this.SendPropertyChanging();
+					this._videourl = value;
+					this.SendPropertyChanged("videourl");
+					this.OnvideourlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_professorName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string professorName
+		{
+			get
+			{
+				return this._professorName;
+			}
+			set
+			{
+				if ((this._professorName != value))
+				{
+					this.OnprofessorNameChanging(value);
+					this.SendPropertyChanging();
+					this._professorName = value;
+					this.SendPropertyChanged("professorName");
+					this.OnprofessorNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(4)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lectureHours", DbType="Int")]
+		public System.Nullable<int> lectureHours
+		{
+			get
+			{
+				return this._lectureHours;
+			}
+			set
+			{
+				if ((this._lectureHours != value))
+				{
+					this.OnlectureHoursChanging(value);
+					this.SendPropertyChanging();
+					this._lectureHours = value;
+					this.SendPropertyChanged("lectureHours");
+					this.OnlectureHoursChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studentNumber", DbType="Int")]
+		public System.Nullable<int> studentNumber
+		{
+			get
+			{
+				return this._studentNumber;
+			}
+			set
+			{
+				if ((this._studentNumber != value))
+				{
+					this.OnstudentNumberChanging(value);
+					this.SendPropertyChanging();
+					this._studentNumber = value;
+					this.SendPropertyChanged("studentNumber");
+					this.OnstudentNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_credits", DbType="Int")]
+		public System.Nullable<int> credits
+		{
+			get
+			{
+				return this._credits;
+			}
+			set
+			{
+				if ((this._credits != value))
+				{
+					this.OncreditsChanging(value);
+					this.SendPropertyChanging();
+					this._credits = value;
+					this.SendPropertyChanged("credits");
+					this.OncreditsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_review", DbType="Int")]
+		public System.Nullable<int> review
+		{
+			get
+			{
+				return this._review;
+			}
+			set
+			{
+				if ((this._review != value))
+				{
+					this.OnreviewChanging(value);
+					this.SendPropertyChanging();
+					this._review = value;
+					this.SendPropertyChanged("review");
+					this.OnreviewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_quizze", Storage="_quizzes", ThisKey="Id", OtherKey="courseid")]
+		public EntitySet<quizze> quizzes
+		{
+			get
+			{
+				return this._quizzes;
+			}
+			set
+			{
+				this._quizzes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_quizzes(quizze entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class = this;
+		}
+		
+		private void detach_quizzes(quizze entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class = null;
 		}
 	}
 }
