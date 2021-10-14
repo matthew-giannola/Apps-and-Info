@@ -19,18 +19,22 @@ namespace Finalprog
                        where f.username == Login.currentUser
                        select f).SingleOrDefault();
 
-            if (!String.IsNullOrWhiteSpace(eo.status))
+            if (eo != null)
             {
-                StatusText.Text = eo.status;
-                eo.status = "";
-            }
-            if (!String.IsNullOrWhiteSpace(eo.color))
-            {
-                formBack.Attributes["style"] = "background-color:" + eo.color;
-            }
+                if (!String.IsNullOrWhiteSpace(eo.status))
+                {
+                    StatusText.Text = eo.status;
+                    eo.status = "";
+                }
+                if (!String.IsNullOrWhiteSpace(eo.color))
+                {
+                    formBack.Attributes["style"] = "background-color:" + eo.color;
+                }
 
-            Label1.Visible = true;
-            Label1.Text = "Welcome " + eo.first_name;
+                var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
+                Label1.Visible = true;
+                Label1.Text = "Welcome " + eo.first_name + "| Role: " + role; 
+            }
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -101,7 +105,7 @@ namespace Finalprog
 
         protected void btnCourse_Click(object sender, EventArgs e)
         {
-            Response.Redirect("SearchPage.aspx");
+            Response.Redirect("~/Search Function/SearchPage.aspx");
         }
     }
 }
