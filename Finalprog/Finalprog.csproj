@@ -79,7 +79,7 @@
     <Content Include="User Function\ForgotPassword.aspx" />
     <Content Include="User Function\Login.aspx" />
     <Content Include="Course Function\Quiz.aspx" />
-    <Content Include="Search Function\REsults.aspx" />
+    <Content Include="Search Function\Results.aspx" />
     <Content Include="Search Function\SearchPage.aspx" />
     <Content Include="User Function\UserPage.aspx" />
     <Content Include="Web.config" />
@@ -129,12 +129,12 @@
     <Compile Include="Course Function\Quiz.aspx.designer.cs">
       <DependentUpon>Quiz.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Search Function\REsults.aspx.cs">
-      <DependentUpon>REsults.aspx</DependentUpon>
+    <Compile Include="Search Function\Results.aspx.cs">
+      <DependentUpon>Results.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Search Function\REsults.aspx.designer.cs">
-      <DependentUpon>REsults.aspx</DependentUpon>
+    <Compile Include="Search Function\Results.aspx.designer.cs">
+      <DependentUpon>Results.aspx</DependentUpon>
     </Compile>
     <Compile Include="Search Function\SearchPage.aspx.cs">
       <DependentUpon>SearchPage.aspx</DependentUpon>
