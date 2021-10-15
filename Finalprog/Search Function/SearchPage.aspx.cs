@@ -31,6 +31,9 @@ namespace Finalprog
 <<<<<<< Updated upstream
 =======
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         //this is what is called when you click the search button
         //this only runs the search function
@@ -48,6 +51,9 @@ namespace Finalprog
 
         //makes you go to the course page when clicked.
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -67,6 +73,17 @@ namespace Finalprog
         }
 
 
+<<<<<<< Updated upstream
+=======
+        //this function is what creates the data to send over to the results page.
+        public string DataCollection()
+        {
+            string searchText = txtSearch.Text;
+            return searchText;
+        }
+
+
+>>>>>>> Stashed changes
         //this searches the database tabe that is labeled "Courses" for data. 
         //Returns the data directly into the lblResults
         //data type needs to be changed to an array of strings, so that we can display more than one.
@@ -92,6 +109,10 @@ namespace Finalprog
             }
         }
 >>>>>>> Stashed changes
+    }
+    public class Search
+    {
+
     }
     public class Search
     {
