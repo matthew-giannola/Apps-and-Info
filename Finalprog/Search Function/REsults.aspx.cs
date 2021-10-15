@@ -33,8 +33,8 @@ namespace Finalprog
             UserDataClassesDataContext us = new UserDataClassesDataContext();
             var search = (from c in us.Classes
                           where (c.Id.ToString().StartsWith(searchText) ||
-c.professorName.ToString().StartsWith(searchText) ||
-c.description.ToString().StartsWith(searchText))
+                          c.professorName.ToString().StartsWith(searchText) ||
+                          c.description.ToString().StartsWith(searchText))
                           select c).FirstOrDefault();
 
             Courses course = new Courses
