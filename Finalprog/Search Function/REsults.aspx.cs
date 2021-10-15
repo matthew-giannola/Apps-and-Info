@@ -31,9 +31,11 @@ namespace Finalprog
         private void Search(string searchText)
         {
             UserDataClassesDataContext us = new UserDataClassesDataContext();
-            var search = (from c in us.Classes where (c.Id.ToString().StartsWith(searchText) ||
-                c.professorName.ToString().StartsWith(searchText) || 
-                c.description.ToString().StartsWith(searchText)) select c).FirstOrDefault();
+            var search = (from c in us.Classes
+                          where (c.Id.ToString().StartsWith(searchText) ||
+c.professorName.ToString().StartsWith(searchText) ||
+c.description.ToString().StartsWith(searchText))
+                          select c).FirstOrDefault();
 
             Courses course = new Courses
             {
@@ -84,9 +86,9 @@ namespace Finalprog
             string searchText = txtResultsSearch.Text;
             bool check = searchCheck(searchText);
 
-            if (check == true) 
+            if (check == true)
             {
-               Search(searchText);
+                Search(searchText);
             }
         }
         /// <summary>
@@ -110,92 +112,11 @@ namespace Finalprog
         public void CourseArray(Courses courses)
         {
             Courses[] coursearray = new Courses[count + 1];
-            if(count < (coursearray.Count()-1))
+            if (count < (coursearray.Count() - 1))
             {
                 coursearray[count] = courses;
             }
             count += 1;
-        }
-        private void Search()
-        {
-            UserDataClassesDataContext us = new UserDataClassesDataContext();
-            string searchText = WebForm1.DataCollection();
-            var search = (from c in us.Classes where (c.Id.ToString().StartsWith(searchText) ||
-                c.professorName.ToString().StartsWith(searchText) || c.description.ToString().StartsWith(searchText)) select c).FirstOrDefault();
-
-            if (search != null && !String.IsNullOrWhiteSpace(searchText))
-            {
-                var result = search.Id + " " + search.description;
-
-                //need to add a navigarion button
-                //btnNav.Visible = true;
-
-                CoursePage.course = search.Id;
-
-                //need to add a label for the results to be on.
-                //lblResults.Text = result;
-                //lblSearch.Visible = false;
-            }
-            else
-            {
-                //need to add a label for the error message of no value to be printed on.
-                //lblSearch.Visible = true;
-                //lblSearch.Text = "Value not Found";
-            }
-        }
-        private void Search()
-        {
-            UserDataClassesDataContext us = new UserDataClassesDataContext();
-            string searchText = WebForm1.DataCollection();
-            var search = (from c in us.Classes where (c.Id.ToString().StartsWith(searchText) ||
-                c.professorName.ToString().StartsWith(searchText) || c.description.ToString().StartsWith(searchText)) select c).FirstOrDefault();
-
-            if (search != null && !String.IsNullOrWhiteSpace(searchText))
-            {
-                var result = search.Id + " " + search.description;
-
-                //need to add a navigarion button
-                //btnNav.Visible = true;
-
-                CoursePage.course = search.Id;
-
-                //need to add a label for the results to be on.
-                //lblResults.Text = result;
-                //lblSearch.Visible = false;
-            }
-            else
-            {
-                //need to add a label for the error message of no value to be printed on.
-                //lblSearch.Visible = true;
-                //lblSearch.Text = "Value not Found";
-            }
-        }
-        private void Search()
-        {
-            UserDataClassesDataContext us = new UserDataClassesDataContext();
-            string searchText = WebForm1.DataCollection();
-            var search = (from c in us.Classes where (c.Id.ToString().StartsWith(searchText) ||
-                c.professorName.ToString().StartsWith(searchText) || c.description.ToString().StartsWith(searchText)) select c).FirstOrDefault();
-
-            if (search != null && !String.IsNullOrWhiteSpace(searchText))
-            {
-                var result = search.Id + " " + search.description;
-
-                //need to add a navigarion button
-                //btnNav.Visible = true;
-
-                CoursePage.course = search.Id;
-
-                //need to add a label for the results to be on.
-                //lblResults.Text = result;
-                //lblSearch.Visible = false;
-            }
-            else
-            {
-                //need to add a label for the error message of no value to be printed on.
-                //lblSearch.Visible = true;
-                //lblSearch.Text = "Value not Found";
-            }
         }
     }
 }
