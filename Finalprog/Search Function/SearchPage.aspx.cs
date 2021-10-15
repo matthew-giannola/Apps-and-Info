@@ -28,6 +28,10 @@ namespace Finalprog
         }
 =======
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         //this is what is called when you click the search button
         //this only runs the search function
         protected void BtnSearch(object sender, EventArgs e)
@@ -43,6 +47,9 @@ namespace Finalprog
 
 
         //makes you go to the course page when clicked.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         protected void ButtonNav_Click(object sender, EventArgs e)
         {
@@ -85,6 +92,10 @@ namespace Finalprog
             }
         }
 >>>>>>> Stashed changes
+    }
+    public class Search
+    {
+
     }
     public class Search
     {
