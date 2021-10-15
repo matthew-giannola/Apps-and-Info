@@ -16,8 +16,6 @@ namespace Finalprog
         {
 
         }
-
-
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -27,14 +25,9 @@ namespace Finalprog
             }
             catch { }
         }
-
-
         protected void ButtonNav_Click(object sender, EventArgs e)
         {
             Response.Redirect("CoursePage.aspx");
         }
-
-
-        
     }
 }

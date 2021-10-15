@@ -74,6 +74,7 @@
     </Content>
     <Content Include="Course Function\Course Page.aspx" />
     <Content Include="Course Function\CoursePage.aspx" />
+    <Content Include="Search Function\CSS\searchButtonStyle.css" />
     <Content Include="User Function\CreateUser.aspx" />
     <Content Include="User Function\ForgotPassword.aspx" />
     <Content Include="User Function\Login.aspx" />
@@ -98,6 +99,7 @@
     <Compile Include="Course Function\CoursePage.aspx.designer.cs">
       <DependentUpon>CoursePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Search Function\Courses.cs" />
     <Compile Include="User Function\CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
