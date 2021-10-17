@@ -35,28 +35,13 @@ namespace Finalprog
                           where (c.Id.ToString().StartsWith(searchText) ||
                           c.professorName.ToString().StartsWith(searchText) ||
                           c.description.ToString().StartsWith(searchText))
-                          select c).FirstOrDefault();
+                          select c).ToList();
 
-            Courses course = new Courses
+            foreach (var c in search)
             {
-                id = search.Id,
-                description = search.description,
-                videoURL = search.videourl,
-                professorName = search.professorName,
-                name = search.name,
-                lectureHours = (int)search.lectureHours,
-                studentNumber = (int)search.studentNumber,
-                credits = (int)search.credits,
-                review = (int)search.review
-            };
-            CourseArray(course);
+                lstResults.Items.Add(c.Id.ToString());
+            }
 
-            lblSearchResults.Text = course.ToString();
-            /*var result = search.Id + " " + search.description;
-            //btnNav.Visible = true;
-            CoursePage.course = search.Id;
-            lblSearchResults.Text = result;
-            lblSearchResults.Visible = true;*/
         }
         /// <summary>
         /// 
@@ -71,8 +56,7 @@ namespace Finalprog
             }
             else
             {
-                lblSearchResults.Visible = true;
-                lblSearchResults.Text = "Value not Found";
+                lstResults.Text = "Value not Found";
                 return false;
             }
         }
@@ -104,19 +88,6 @@ namespace Finalprog
         private void SortResults()
         {
 
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="courses"></param>
-        public void CourseArray(Courses courses)
-        {
-            Courses[] coursearray = new Courses[count + 1];
-            if (count < (coursearray.Count() - 1))
-            {
-                coursearray[count] = courses;
-            }
-            count += 1;
         }
     }
 }
