@@ -99,7 +99,6 @@
     <Compile Include="Course Function\CoursePage.aspx.designer.cs">
       <DependentUpon>CoursePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Search Function\Courses.cs" />
     <Compile Include="User Function\CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
