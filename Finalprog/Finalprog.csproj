@@ -74,7 +74,7 @@
     </Content>
     <Content Include="Course Function\Course Page.aspx" />
     <Content Include="Course Function\CoursePage.aspx" />
-    <Content Include="Search Function\CSS\searchButtonStyle.css" />
+    <Content Include="Search Function\searchButtonStyle.css" />
     <Content Include="User Function\CreateUser.aspx" />
     <Content Include="User Function\ForgotPassword.aspx" />
     <Content Include="User Function\Login.aspx" />
@@ -191,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Search Function\CSS\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

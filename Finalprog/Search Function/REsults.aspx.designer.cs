@@ -11,43 +11,43 @@ namespace Finalprog
 {
 
 
-   public partial class REsults
-   {
+    public partial class REsults
+    {
 
-      /// <summary>
-      /// form1 control.
-      /// </summary>
-      /// <remarks>
-      /// Auto-generated field.
-      /// To modify move field declaration from designer file to code-behind file.
-      /// </remarks>
-      protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
-      /// <summary>
-      /// txtResultsSearch control.
-      /// </summary>
-      /// <remarks>
-      /// Auto-generated field.
-      /// To modify move field declaration from designer file to code-behind file.
-      /// </remarks>
-      protected global::System.Web.UI.WebControls.TextBox txtResultsSearch;
+        /// <summary>
+        /// txtResultsSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtResultsSearch;
 
-      /// <summary>
-      /// btnResultsSearch control.
-      /// </summary>
-      /// <remarks>
-      /// Auto-generated field.
-      /// To modify move field declaration from designer file to code-behind file.
-      /// </remarks>
-      protected global::System.Web.UI.WebControls.Button btnResultsSearch;
+        /// <summary>
+        /// btnResultsSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnResultsSearch;
 
-      /// <summary>
-      /// lstResults control.
-      /// </summary>
-      /// <remarks>
-      /// Auto-generated field.
-      /// To modify move field declaration from designer file to code-behind file.
-      /// </remarks>
-      protected global::System.Web.UI.WebControls.ListBox lstResults;
-   }
+        /// <summary>
+        /// lstResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstResults;
+    }
 }
