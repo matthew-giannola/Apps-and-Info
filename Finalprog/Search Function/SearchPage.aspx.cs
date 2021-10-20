@@ -12,6 +12,7 @@ namespace Finalprog
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        public static UserDataClassesDataContext us = new UserDataClassesDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -27,5 +28,22 @@ namespace Finalprog
             catch { }
         }
 
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("~/User Function/Admin.aspx");
+
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            user eo = (from f in us.users
+                       where f.username == Login.currentUser
+                       select f).SingleOrDefault();
+
+            us.SubmitChanges();
+            Login.currentUser = "";
+            Response.Redirect("~/User Function/Login.aspx");
+        }
     }
 }

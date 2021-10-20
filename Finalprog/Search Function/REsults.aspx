@@ -12,7 +12,7 @@
            <asp:TextBox ID="txtResultsSearch" runat="server"></asp:TextBox>
            <asp:Button ID="btnResultsSearch" runat="server" OnClick="btnResultsSearch_Click" Text="Search" />
         </div>
-        <asp:ListBox ID="lstResults" runat="server"></asp:ListBox>
+        <asp:ListBox ID="lstResults" runat="server" Width="453px"></asp:ListBox>
     </form>
 </body>
 </html>
