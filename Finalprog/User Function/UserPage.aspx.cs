@@ -18,6 +18,7 @@ namespace Finalprog
             user eo = (from f in us.users
                        where f.username == Login.currentUser
                        select f).SingleOrDefault();
+            var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
 
             if (eo != null)
             {
@@ -30,8 +31,10 @@ namespace Finalprog
                 {
                     formBack.Attributes["style"] = "background-color:" + eo.color;
                 }
-
-                var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
+                if(role == "Admin")
+                {
+                    btnAdmin.Visible = true;
+                }
                 Label1.Visible = true;
                 Label1.Text = "Welcome " + eo.first_name + "| Role: " + role; 
             }
@@ -106,6 +109,10 @@ namespace Finalprog
         protected void btnCourse_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Search Function/SearchPage.aspx");
+        }
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User Function/Admin.aspx");
         }
     }
 }
