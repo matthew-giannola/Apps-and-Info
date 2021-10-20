@@ -11,12 +11,17 @@ namespace Finalprog.User_Function
     public partial class Admin : System.Web.UI.Page
     {
         public static UserDataClassesDataContext us = new UserDataClassesDataContext();
+        public static int count = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            foreach (GridViewRow gridRow in GridView1.Rows)
+            if (count == 0)
             {
-                gridRow.Cells[8].Text = us.Roles.Where(a => a.Id == Int32.Parse(gridRow.Cells[8].Text)).Select(a => a.Description).FirstOrDefault();
+                foreach (GridViewRow gridRow in GridView1.Rows)
+                {
+                    gridRow.Cells[8].Text = us.Roles.Where(a => a.Id == Int32.Parse(gridRow.Cells[8].Text)).Select(a => a.Description).FirstOrDefault();
+                } 
             }
+            count++;
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
@@ -33,6 +38,12 @@ namespace Finalprog.User_Function
         protected void btnCourse_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Search Function/SearchPage.aspx");
+        }
+
+
+        protected void btnUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User Function/UserPage.aspx");
         }
     }
 }

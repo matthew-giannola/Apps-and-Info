@@ -34,7 +34,10 @@ namespace Finalprog
             Response.Redirect("~/User Function/Admin.aspx");
 
         }
-
+        protected void btnUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User Function/UserPage.aspx");
+        }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             user eo = (from f in us.users
