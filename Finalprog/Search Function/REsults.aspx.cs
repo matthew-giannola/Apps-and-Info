@@ -45,14 +45,14 @@ namespace Finalprog
         {
             UserDataClassesDataContext us = new UserDataClassesDataContext();
             var search = (from c in us.Classes
-                          where (c.Id.ToString().Contains(searchText) ||
-                          c.professorName.ToString().Contains(searchText) ||
-                          c.description.ToString().Contains(searchText))
+                          where (c.Id.ToString().StartsWith(searchText) ||
+                          c.professorName.ToString().StartsWith(searchText) ||
+                          c.description.ToString().StartsWith(searchText))
                           select c).ToList();
 
             foreach (var c in search)
             {
-                String temp = ("Course: " + c.Id.ToString() + " " + c.description.ToString() + " " + c.professorName.ToString() + " ");
+                String temp = ("Course: " + c.Id.ToString() +  " " + c.description.ToString() + " " + c.professorName.ToString() + " ");
                 lstResults.Items.Add(temp);
             }
 
@@ -123,21 +123,6 @@ namespace Finalprog
             us.SubmitChanges();
             Login.currentUser = "";
             Response.Redirect("~/User Function/Login.aspx");
-        }
-        protected void btnCourse_Click(object sender, EventArgs e)
-        {
-            String temp = lstResults.SelectedValue;
-            if (!String.IsNullOrWhiteSpace(temp))
-            {
-                int course = Convert.ToInt32(temp.Substring(8, 4));
-
-                CoursePage.course = course;
-                Response.Redirect("~/Course Function/CoursePage.aspx");
-            }
-            else
-            {
-                lblSelect.Visible = true;
-            }
         }
     }
 }

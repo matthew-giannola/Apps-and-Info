@@ -49,7 +49,14 @@ namespace Finalprog
             var announcemessage = us.Classes.Where(a => a.Id == course).Select(a => a.announcementMessage).FirstOrDefault();
             var teacher = us.Classes.Where(a => a.Id == course).Select(a => a.professorName).FirstOrDefault();
 
-            announceLabel.Text = announcemessage;
+            if(announcemessage == null)
+            {
+                announceLabel.Text = "There is no announcement for this class.";
+            }
+            else
+            {
+                announceLabel.Text = announcemessage;
+            }
             descriptionLabel.Text = descrip;
             if(zoom == null)
             {
