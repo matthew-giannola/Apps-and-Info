@@ -19,6 +19,10 @@ namespace Finalprog
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Login.currentUser == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
             user eo = (from f in us.users
                        where f.username == Login.currentUser
                        select f).SingleOrDefault();

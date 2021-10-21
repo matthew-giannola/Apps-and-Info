@@ -14,6 +14,10 @@ namespace Finalprog.User_Function
         public static int count = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Login.currentUser == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
             if (count == 0)
             {
                 foreach (GridViewRow gridRow in GridView1.Rows)
