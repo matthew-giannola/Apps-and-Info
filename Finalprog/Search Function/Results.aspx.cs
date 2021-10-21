@@ -39,7 +39,8 @@ namespace Finalprog
 
             foreach (var c in search)
             {
-                lstResults.Items.Add(c.Id.ToString());
+                String temp = ("Course: " + c.Id.ToString() +  " " + c.description.ToString() + " " + c.professorName.ToString() + " ");
+                lstResults.Items.Add(temp);
             }
 
         }

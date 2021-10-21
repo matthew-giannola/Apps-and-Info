@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Windows;
 using System.Web.UI;
-using System.Drawing;
 using System.Web.UI.WebControls;
 using static Finalprog.WebForm1;
 
@@ -32,9 +30,6 @@ namespace Finalprog
         /// <param name="searchText"></param>
         private void Search(string searchText)
         {
-            String temp;
-
-            lstResults.Items.Clear();
             UserDataClassesDataContext us = new UserDataClassesDataContext();
             var search = (from c in us.Classes
                           where (c.Id.ToString().StartsWith(searchText) ||
@@ -44,10 +39,10 @@ namespace Finalprog
 
             foreach (var c in search)
             {
-                temp = ("Course; Id: " + c.Id.ToString() + " Name: " + c.description.ToString() + " Professor: " + c.professorName.ToString());
+                String temp = ("Course: " + c.Id.ToString() +  " " + c.description.ToString() + " " + c.professorName.ToString() + " ");
                 lstResults.Items.Add(temp);
             }
-           
+
         }
         /// <summary>
         /// 
@@ -84,19 +79,9 @@ namespace Finalprog
         /// <summary>
         /// 
         /// </summary>
-        private void CreateTile()
+        private void MultipleDisplay()
         {
-            int top = 50;
-            int left = 100;
 
-            /*for (int i = 0; i < lstResults.Items.Count; i++)
-            {
-                Button button = new Button();
-                button.Left = left;
-                button.Top = top;
-                this.Controls.Add(button);
-                top += button.Height + 2;
-            }*/
         }
         /// <summary>
         /// 
