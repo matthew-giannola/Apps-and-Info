@@ -9,42 +9,42 @@
 <body>
     <form id="form1" runat="server">
 
-            <asp:Button ID="btnLogout" runat="server" Height="25px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="None" />     
-            <asp:Button ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="AdminPage" Visible="False" BorderStyle="None" Height="25px" Width="130px" />
-            <asp:Button ID="btnUser" runat="server" OnClick="btnUser_Click" Text="User Page" BorderStyle="None" Height="25px" Width="130px" />
-&nbsp;<hr />
 
         <style>
             .center {
-        position: absolute;
-        left:49%;
-        top:17%;
-        transform: translateX(-50%) translateY(-50%);
-        text-align: left;
-        margin: 1px;
-        }
+                position: absolute;
+                left: 49%;
+                top: 17%;
+                transform: translateX(-50%) translateY(-50%);
+                text-align: left;
+                margin: 1px;
+            }
 
-             .center2 {
-        position: absolute;
-        left:50%;
-        top:50%;
-        transform: translateX(-50%) translateY(-40%);
-        text-align: left;
-        margin: 1px;
-        }
+            .center2 {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-40%);
+                text-align: left;
+                margin: 1px;
+            }
 
-        .outer {
-        margin: 1px 1px 1px 0px;
-        display: inline-block;
-        }</style>
-       
+            .outer {
+                margin: 1px 1px 1px 0px;
+                display: inline-block;
+            }
+        </style>
 
-        <div class ="center">
-           <asp:TextBox class="outer" ID="txtResultsSearch" runat="server" Width="637px" Height="27px" BorderStyle="Outset"></asp:TextBox>
-           <asp:Button class="outer" ID="btnResultsSearch" runat="server" OnClick="btnResultsSearch_Click" Text="Search" Height="33px" Width="136px" />
+        <asp:Button ID="btnLogout" runat="server" Height="25px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="None" />
+        <asp:Button ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="AdminPage" Visible="False" BorderStyle="None" Height="25px" Width="130px" />
+        <asp:Button ID="btnUser" runat="server" OnClick="btnUser_Click" Text="User Page" BorderStyle="None" Height="25px" Width="130px" />
+                &nbsp;<hr />
+        <div class="center">
+            <asp:TextBox class="outer" ID="txtResultsSearch" runat="server" Width="637px" Height="27px" BorderStyle="Outset"></asp:TextBox>
+            <asp:Button class="outer" ID="btnResultsSearch" runat="server" OnClick="btnResultsSearch_Click" Text="Search" Height="33px" Width="136px" />
         </div>
-        <div class ="center2">
-        <asp:ListBox ID="lstResults" runat="server" Width="633px" Height="324px" Font-Names="Roboto Condensed" Font-Size="Large" ></asp:ListBox>
+        <div class="center2">
+            <asp:ListBox ID="lstResults" runat="server" Width="633px" Height="324px" Font-Names="Roboto Condensed" Font-Size="Large"></asp:ListBox>
         </div>
     </form>
 </body>
