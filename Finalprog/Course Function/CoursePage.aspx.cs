@@ -17,7 +17,7 @@ namespace Finalprog
         public static Int32 course;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Login.currentUser == null)
+            if (String.IsNullOrWhiteSpace(Login.currentUser))
             {
                 Response.Redirect("Login.aspx");
             }
