@@ -73,33 +73,32 @@
     <Content Include="App_Data\Users_log.ldf">
       <DependentUpon>Users.mdf</DependentUpon>
     </Content>
-    <Content Include="Course Function\Course Page.aspx" />
     <Content Include="Course Function\CoursePage.aspx" />
+    <Content Include="Course Function\Quiz_Page.aspx" />
     <Content Include="Search Function\CSS\searchButtonStyle.css" />
     <Content Include="User Function\Admin.aspx" />
     <Content Include="User Function\CreateUser.aspx" />
     <Content Include="User Function\ForgotPassword.aspx" />
     <Content Include="User Function\Login.aspx" />
-    <Content Include="Course Function\Quiz.aspx" />
     <Content Include="Search Function\Results.aspx" />
     <Content Include="Search Function\SearchPage.aspx" />
     <Content Include="User Function\UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Course Function\Course Page.aspx.cs">
-      <DependentUpon>Course Page.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Course Function\Course Page.aspx.designer.cs">
-      <DependentUpon>Course Page.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Course Function\CoursePage.aspx.cs">
       <DependentUpon>CoursePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Course Function\CoursePage.aspx.designer.cs">
       <DependentUpon>CoursePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Course Function\Quiz_Page.aspx.cs">
+      <DependentUpon>Quiz_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Course Function\Quiz_Page.aspx.designer.cs">
+      <DependentUpon>Quiz_Page.aspx</DependentUpon>
     </Compile>
     <Compile Include="User Function\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
@@ -130,13 +129,6 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Course Function\Quiz.aspx.cs">
-      <DependentUpon>Quiz.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Course Function\Quiz.aspx.designer.cs">
-      <DependentUpon>Quiz.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Search Function\Results.aspx.cs">
       <DependentUpon>Results.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

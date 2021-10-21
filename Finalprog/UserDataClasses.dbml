@@ -65,6 +65,9 @@
       <Column Name="studentNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="credits" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="review" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="zoomLink" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="courseTitle" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="announcementMessage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Class_quizze" Member="quizzes" ThisKey="Id" OtherKey="courseid" Type="quizze" />
     </Type>
   </Table>

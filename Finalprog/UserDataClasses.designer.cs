@@ -1218,6 +1218,12 @@ namespace Finalprog
 		
 		private System.Nullable<int> _review;
 		
+		private string _zoomLink;
+		
+		private string _courseTitle;
+		
+		private string _announcementMessage;
+		
 		private EntitySet<quizze> _quizzes;
 		
     #region Extensibility Method Definitions
@@ -1242,6 +1248,12 @@ namespace Finalprog
     partial void OncreditsChanged();
     partial void OnreviewChanging(System.Nullable<int> value);
     partial void OnreviewChanged();
+    partial void OnzoomLinkChanging(string value);
+    partial void OnzoomLinkChanged();
+    partial void OncourseTitleChanging(string value);
+    partial void OncourseTitleChanged();
+    partial void OnannouncementMessageChanging(string value);
+    partial void OnannouncementMessageChanged();
     #endregion
 		
 		public Class()
@@ -1426,6 +1438,66 @@ namespace Finalprog
 					this._review = value;
 					this.SendPropertyChanged("review");
 					this.OnreviewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_zoomLink", DbType="NVarChar(MAX)")]
+		public string zoomLink
+		{
+			get
+			{
+				return this._zoomLink;
+			}
+			set
+			{
+				if ((this._zoomLink != value))
+				{
+					this.OnzoomLinkChanging(value);
+					this.SendPropertyChanging();
+					this._zoomLink = value;
+					this.SendPropertyChanged("zoomLink");
+					this.OnzoomLinkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_courseTitle", DbType="NVarChar(MAX)")]
+		public string courseTitle
+		{
+			get
+			{
+				return this._courseTitle;
+			}
+			set
+			{
+				if ((this._courseTitle != value))
+				{
+					this.OncourseTitleChanging(value);
+					this.SendPropertyChanging();
+					this._courseTitle = value;
+					this.SendPropertyChanged("courseTitle");
+					this.OncourseTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_announcementMessage", DbType="NVarChar(MAX)")]
+		public string announcementMessage
+		{
+			get
+			{
+				return this._announcementMessage;
+			}
+			set
+			{
+				if ((this._announcementMessage != value))
+				{
+					this.OnannouncementMessageChanging(value);
+					this.SendPropertyChanging();
+					this._announcementMessage = value;
+					this.SendPropertyChanged("announcementMessage");
+					this.OnannouncementMessageChanged();
 				}
 			}
 		}
