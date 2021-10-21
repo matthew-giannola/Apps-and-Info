@@ -10,6 +10,7 @@ namespace Finalprog
 {
     public partial class REsults : System.Web.UI.Page
     {
+        public static UserDataClassesDataContext us = new UserDataClassesDataContext();
         int count = 0;
         /// <summary>
         /// 
@@ -18,10 +19,22 @@ namespace Finalprog
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            user eo = (from f in us.users
+                       where f.username == Login.currentUser
+                       select f).SingleOrDefault();
+            var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
+
             if (Session["searchTerm"] != null)
             {
                 String searchText = Session["searchTerm"].ToString();
                 Search(searchText);
+            }
+            if (eo != null)
+            {
+                if (role == "Admin")
+                {
+                    btnAdmin.Visible = true;
+                }
             }
         }
         /// <summary>
@@ -68,6 +81,7 @@ namespace Finalprog
         /// <param name="e"></param>
         protected void btnResultsSearch_Click(object sender, EventArgs e)
         {
+            lstResults.Items.Clear();
             string searchText = txtResultsSearch.Text;
             bool check = searchCheck(searchText);
 
@@ -89,6 +103,26 @@ namespace Finalprog
         private void SortResults()
         {
 
+        }
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("~/User Function/Admin.aspx");
+
+        }
+        protected void btnUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User Function/UserPage.aspx");
+        }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            user eo = (from f in us.users
+                       where f.username == Login.currentUser
+                       select f).SingleOrDefault();
+
+            us.SubmitChanges();
+            Login.currentUser = "";
+            Response.Redirect("~/User Function/Login.aspx");
         }
     }
 }
