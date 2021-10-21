@@ -26,7 +26,7 @@
             Password: <asp:TextBox ID="txtpass" runat="server" Height="20px" OnTextChanged="TextBox1_TextChanged" Width="160px"></asp:TextBox>
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:HyperLink ID="hyperForgot" runat="server" style="font-size: small" NavigateUrl="~/ForgotPassword.aspx">Forgot Password?</asp:HyperLink>
+            <asp:HyperLink ID="hyperForgot" runat="server" style="font-size: small" NavigateUrl="~/User Function/ForgotPassword.aspx">Forgot Password?</asp:HyperLink>
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />

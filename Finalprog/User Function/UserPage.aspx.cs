@@ -28,7 +28,6 @@ namespace Finalprog
                 if (!String.IsNullOrWhiteSpace(eo.status))
                 {
                     StatusText.Text = eo.status;
-                    //eo.status = "";
                 }
                 if (!String.IsNullOrWhiteSpace(eo.color))
                 {

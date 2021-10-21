@@ -33,7 +33,12 @@ namespace Finalprog
                     btnAdmin.Visible = true;
                 }
             }
+            if (!us.quizzes.Where(a => a.courseid == course).Any())
+            {
+                testButton.Visible = false;
+            }
 
+            //--------------------------------------------------------------
             var video_id = us.Classes.Where(a => a.Id == course).Select(a => a.videourl).FirstOrDefault();
 
             // Gets the video url from the database
@@ -53,9 +58,18 @@ namespace Finalprog
             var announcemessage = us.Classes.Where(a => a.Id == course).Select(a => a.announcementMessage).FirstOrDefault();
             var teacher = us.Classes.Where(a => a.Id == course).Select(a => a.professorName).FirstOrDefault();
 
-            announceLabel.Text = announcemessage;
+            if (!String.IsNullOrWhiteSpace(announcemessage))
+            {
+                announceLabel.Text = announcemessage;
+
+            }
+            else
+            {
+
+                announceLabel.Text = "There is no announcement for this course.";
+            }
             descriptionLabel.Text = descrip;
-            if(zoom == null)
+            if (zoom == null)
             {
                 zoomLabel.Text = "This course does not have a Zoom meeting scheduled. Check back later";
             }
@@ -65,6 +79,8 @@ namespace Finalprog
             }
             teachLabel.Text = "Teacher: " + teacher;
 
+            //--------------------------------------------------------------
+
         }
         public void updateCourse(Int32 courseId)
         {
@@ -73,8 +89,10 @@ namespace Finalprog
 
         protected void testButton_Click(object sender, EventArgs e)
         {
+
             Quiz_Page.course = course;
             Response.Redirect("Quiz_Page.aspx", false);
+
         }
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
