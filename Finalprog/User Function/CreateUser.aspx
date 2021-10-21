@@ -28,7 +28,6 @@
                 <asp:ListItem Value="Admin"></asp:ListItem>
                 <asp:ListItem Value="Professor"></asp:ListItem>
                 <asp:ListItem Value="Student"></asp:ListItem>
-                <asp:ListItem Value="Content Manager"></asp:ListItem>
             </asp:DropDownList>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtAdminConfirm" runat="server" Height="16px" Visible="False" Width="128px"></asp:TextBox>

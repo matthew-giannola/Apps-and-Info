@@ -20,12 +20,12 @@ namespace Finalprog
                        select f).SingleOrDefault();
             var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
 
-            if (eo != null)
+            if (eo != null && !Page.IsPostBack)
             {
                 if (!String.IsNullOrWhiteSpace(eo.status))
                 {
                     StatusText.Text = eo.status;
-                    eo.status = "";
+                    //eo.status = "";
                 }
                 if (!String.IsNullOrWhiteSpace(eo.color))
                 {

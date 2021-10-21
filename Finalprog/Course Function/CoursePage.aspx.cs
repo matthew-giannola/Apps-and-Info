@@ -13,10 +13,22 @@ namespace Finalprog
 
     public partial class CoursePage : Page
     {
+        public static UserDataClassesDataContext us = new UserDataClassesDataContext();
         public static Int32 course;
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserDataClassesDataContext us = new UserDataClassesDataContext();
+            user eo = (from f in us.users
+                       where f.username == Login.currentUser
+                       select f).SingleOrDefault();
+            var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
+
+            if (eo != null)
+            {
+                if (role == "Admin")
+                {
+                    btnAdmin.Visible = true;
+                }
+            }
 
             var video_id = us.Classes.Where(a => a.Id == course).Select(a => a.videourl).FirstOrDefault();
 
@@ -60,6 +72,25 @@ namespace Finalprog
             Quiz_Page.course = course;
             Response.Redirect("Quiz_Page.aspx", false);
         }
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
 
+            Response.Redirect("~/User Function/Admin.aspx");
+
+        }
+        protected void btnUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User Function/UserPage.aspx");
+        }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            user eo = (from f in us.users
+                       where f.username == Login.currentUser
+                       select f).SingleOrDefault();
+
+            us.SubmitChanges();
+            Login.currentUser = "";
+            Response.Redirect("~/User Function/Login.aspx");
+        }
     }
 }

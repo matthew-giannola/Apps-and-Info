@@ -79,6 +79,7 @@ namespace Finalprog
                         organization = DropDownList3.SelectedValue,
                         degree = DropDownList2.SelectedValue,
                         email = txtEmail.Text,
+                        RoleID = us.Roles.Where(a => a.Description == dropRole.SelectedValue).Select(a => a.Id).FirstOrDefault(),
                     };
 
                     us.users.InsertOnSubmit(u);

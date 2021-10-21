@@ -9,6 +9,7 @@ namespace Finalprog
 {
     public partial class Quiz_Page : System.Web.UI.Page
     {
+        public static UserDataClassesDataContext us = new UserDataClassesDataContext();
         public static Int32 course;
         private static int quizid;
         private Int32 score = 0;
@@ -18,6 +19,18 @@ namespace Finalprog
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            user eo = (from f in us.users
+                       where f.username == Login.currentUser
+                       select f).SingleOrDefault();
+            var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
+
+            if (eo != null)
+            {
+                if (role == "Admin")
+                {
+                    btnAdmin.Visible = true;
+                }
+            }
             if (!Page.IsPostBack)
             {
                 UserDataClassesDataContext us = new UserDataClassesDataContext();
@@ -149,6 +162,26 @@ namespace Finalprog
             scoreLabel.Visible = true;
             scoreLabel.Text = score + "/" + total;
             Button1.Enabled = false;
+        }
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("~/User Function/Admin.aspx");
+
+        }
+        protected void btnUser_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/User Function/UserPage.aspx");
+        }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            user eo = (from f in us.users
+                       where f.username == Login.currentUser
+                       select f).SingleOrDefault();
+
+            us.SubmitChanges();
+            Login.currentUser = "";
+            Response.Redirect("~/User Function/Login.aspx");
         }
     }
 }
