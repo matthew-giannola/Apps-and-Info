@@ -59,7 +59,6 @@ namespace Finalprog
                 String temp = ("Course: " + c.Id.ToString() + " " + c.description.ToString() + " " + c.professorName.ToString() + " ");
                 lstResults.Items.Add(temp);
             }
-
         }
         /// <summary>
         /// 
@@ -140,8 +139,9 @@ namespace Finalprog
             }
             else
             {
-                lblSelect.Visible = true;
+               lblSelect.Visible = true;
             }
+            lstResults.Items.Clear();
         }
     }
 }

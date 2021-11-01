@@ -11,88 +11,97 @@ namespace Finalprog
 {
 
 
-    public partial class REsults
-    {
+   public partial class REsults
+   {
 
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+      /// <summary>
+      /// form1 control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
-        /// <summary>
-        /// btnLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+      /// <summary>
+      /// btnLogout control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.Button btnLogout;
 
-        /// <summary>
-        /// btnAdmin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdmin;
+      /// <summary>
+      /// btnAdmin control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.Button btnAdmin;
 
-        /// <summary>
-        /// btnUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUser;
+      /// <summary>
+      /// btnUser control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.Button btnUser;
 
-        /// <summary>
-        /// txtResultsSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtResultsSearch;
+      /// <summary>
+      /// txtResultsSearch control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.TextBox txtResultsSearch;
 
-        /// <summary>
-        /// btnResultsSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResultsSearch;
+      /// <summary>
+      /// btnResultsSearch control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.Button btnResultsSearch;
 
-        /// <summary>
-        /// lstResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstResults;
+      /// <summary>
+      /// lstResults control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.ListBox lstResults;
 
-        /// <summary>
-        /// btnCourse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCourse;
+      /// <summary>
+      /// btnCourse control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.Button btnCourse;
 
-        /// <summary>
-        /// lblSelect control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSelect;
-    }
+      /// <summary>
+      /// lblSelect control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.Label lblSelect;
+
+      /// <summary>
+      /// lstTile control.
+      /// </summary>
+      /// <remarks>
+      /// Auto-generated field.
+      /// To modify move field declaration from designer file to code-behind file.
+      /// </remarks>
+      protected global::System.Web.UI.WebControls.ListView lstTile;
+   }
 }
