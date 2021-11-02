@@ -8,7 +8,7 @@ using static Finalprog.WebForm1;
 
 namespace Finalprog
 {
-   //test
+   //test2
     public partial class REsults : System.Web.UI.Page
     {
         public static UserDataClassesDataContext us = new UserDataClassesDataContext();
