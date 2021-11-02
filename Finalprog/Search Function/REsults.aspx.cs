@@ -66,6 +66,7 @@ namespace Finalprog
         /// </summary>
         /// <param name="search"></param>
         /// <returns></returns>
+        /// 
         private bool searchCheck(string search)
         {
             if (search != null && !String.IsNullOrWhiteSpace(txtResultsSearch.Text))
