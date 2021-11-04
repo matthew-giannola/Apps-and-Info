@@ -14,7 +14,7 @@
             .center {
                 position: absolute;
                 left: 49%;
-                top: 17%;
+                top: 9%;
                 transform: translateX(-50%) translateY(-50%);
                 text-align: left;
                 margin: 1px;
@@ -29,14 +29,6 @@
                 margin: 1px;
             }
 
-            .center3 {
-                position: absolute;
-                left: 50%;
-                top: 33%;
-                transform: translateX(-50%) translateY(-40%);
-                text-align: left;
-                margin: 1px;
-            }
 
             .outer {
                 margin: 1px 1px 1px 0px;
@@ -54,10 +46,15 @@
         </div>
 
         <div class="center2">
-            <asp:ListBox ID="lstResults" runat="server" Width="633px" Height="324px" Font-Names="Roboto Condensed" Font-Size="Large"></asp:ListBox>
-        </div>
-        <div class="center3">
-            <asp:Button ID="btnCourse" runat="server" Text="Go To Course" OnClick="btnCourse_Click" Font-Names="Roboto Condensed" Font-Size="Large" Width="631px" Height="40px" />
+            <asp:Button ID="btnResults1" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults1_Click" />
+            <asp:Button ID="btnResults2" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults2_Click" />
+            <asp:Button ID="btnResults3" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults3_Click" />
+            <asp:Button ID="btnResults4" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults4_Click" />
+            <asp:Button ID="btnResults5" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults5_Click" />
+            <asp:Button ID="btnResults6" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults6_Click" />
+            <asp:Button ID="btnResults7" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults7_Click" />
+            <asp:Button ID="btnResults8" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults8_Click" />
+            <asp:Button ID="btnResults9" runat="server" Height="200px" Visible="False" Width="400px" CssClass="outer" OnClick="btnResults9_Click" />
         </div>
         <p>
             &nbsp;</p>
@@ -71,10 +68,7 @@
             &nbsp;</p>
         <p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="lblSelect" runat="server" ForeColor="#CC0000" Text="Please Select a Course" Visible="False"></asp:Label>
-        </p>
-        <asp:ListView ID="lstTile" runat="server">
-        </asp:ListView>
+            </p>
     </form>
 </body>
 </html>
