@@ -29,8 +29,9 @@ namespace Finalprog
             {
                 Response.Redirect("Login.aspx");
             }
-            user eo = (from f in us.users
-                       where f.username == Login.currentUser
+
+            user eo = (from f in us.users 
+                       where f.username == Login.currentUser 
                        select f).SingleOrDefault();
             var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
 
@@ -39,6 +40,7 @@ namespace Finalprog
                 String searchText = Session["searchTerm"].ToString();
                 Search(searchText);
             }
+
             if (eo != null)
             {
                 if (role == "Admin")
@@ -53,6 +55,8 @@ namespace Finalprog
         /// <param name="searchText"></param>
         private void Search(string searchText)
         {
+            int i = 0;
+
             UserDataClassesDataContext us = new UserDataClassesDataContext();
             var search = (from c in us.Classes
                           where (c.Id.ToString().Contains(searchText) ||
@@ -60,11 +64,10 @@ namespace Finalprog
                           c.description.ToString().Contains(searchText))
                           select c).ToList();
 
-            int i = 0;
             foreach (var c in search)
             {
-                String temp = ("Course: " + c.Id.ToString() + " " + c.description.ToString() + " " + c.professorName.ToString() + " ");
-
+                String temp = ("Course: " + c.Id.ToString() + " " + 
+                    c.description.ToString() + " " + c.professorName.ToString() + " ");
                 CreateTile(i, temp);
                 i++;
             }
@@ -113,81 +116,108 @@ namespace Finalprog
             btnResults4.Visible = false;
             btnResults5.Visible = false;
             btnResults6.Visible = false;
+            btnResults7.Visible = false;
+            btnResults8.Visible = false;
+            btnResults9.Visible = false;
+            //btnResults10.Visible = false;
         }
-
-
         /// <summary>
         /// 
         /// </summary>
         private void CreateTile(int i, string temp)
         {
-            if (i == 0)
+            switch (i)
             {
-                btnResults1.Visible = true;
-                btnResults1.Text = temp;
-                btnResults1.BackColor = RandomColor();
-            }
-            if (i == 1)
-            {
-                btnResults2.Visible = true;
-                btnResults2.Text = temp;
-                btnResults2.BackColor = RandomColor();
-            }
-            if (i == 2)
-            {
-                btnResults3.Visible = true;
-                btnResults3.Text = temp;
-                btnResults3.BackColor = RandomColor();
-            }
-            if (i == 3)
-            {
-                btnResults4.Visible = true;
-                btnResults4.Text = temp;
-                btnResults4.BackColor = RandomColor();
-            }
-            if (i == 4)
-            {
-                btnResults5.Visible = true;
-                btnResults5.Text = temp;
-                btnResults5.BackColor = RandomColor();
-            }
-            if (i == 5)
-            {
-                btnResults6.Visible = true;
-                btnResults6.Text = temp;
-                btnResults6.BackColor = RandomColor();
+                case 0:
+                    btnResults1.Visible = true;
+                    btnResults1.Text = temp;
+                    btnResults1.BackColor = RandomColor();
+                    break;
+                case 1:
+                    btnResults2.Visible = true;
+                    btnResults2.Text = temp;
+                    btnResults2.BackColor = RandomColor();
+                    break;
+                case 2:
+                    btnResults3.Visible = true;
+                    btnResults3.Text = temp;
+                    btnResults3.BackColor = RandomColor();
+                    break;
+                case 3:
+                    btnResults4.Visible = true;
+                    btnResults4.Text = temp;
+                    btnResults4.BackColor = RandomColor();
+                    break;
+                case 4:
+                    btnResults5.Visible = true;
+                    btnResults5.Text = temp;
+                    btnResults5.BackColor = RandomColor();
+                    break;
+                case 5:
+                    btnResults6.Visible = true;
+                    btnResults6.Text = temp;
+                    btnResults6.BackColor = RandomColor();
+                    break;
+                case 6:
+                    btnResults7.Visible = true;
+                    btnResults7.Text = temp;
+                    btnResults7.BackColor = RandomColor();
+                    break;
+                case 7:
+                    btnResults8.Visible = true;
+                    btnResults8.Text = temp;
+                    btnResults8.BackColor = RandomColor();
+                    break;
+                case 8:
+                    btnResults9.Visible = true;
+                    btnResults9.Text = temp;
+                    btnResults9.BackColor = RandomColor();
+                    break;
+                //case 9:
+                    //btnResults10.Visible = true;
+                    //btnResults10.Text = temp;
+                    //btnResults10.BackColor = RandomColor();
+                    //break;
             }
         }
-
         /// <summary>
         /// 
         /// </summary>
         private void CourseRedirect(int i)
         {
             String temp = "";
-            if (i == 0)
+            switch (i)
             {
-                temp = btnResults1.Text;
-            }
-            if (i == 1)
-            {
-                temp = btnResults2.Text;
-            }
-            if (i == 2)
-            {
-                temp = btnResults3.Text;
-            }
-            if (i == 3)
-            {
-                temp = btnResults4.Text;
-            }
-            if (i == 4)
-            {
-                temp = btnResults5.Text;
-            }
-            if (i == 5)
-            {
-                temp = btnResults6.Text;
+                case 0:
+                    temp = btnResults1.Text;
+                    break;
+                case 1:
+                    temp = btnResults2.Text;
+                    break;
+                case 2:
+                    temp = btnResults3.Text;
+                    break;
+                case 3:
+                    temp = btnResults4.Text;
+                    break;
+                case 4:
+                    temp = btnResults5.Text;
+                    break;
+                case 5:
+                    temp = btnResults6.Text;
+                    break;
+                case 6:
+                    temp = btnResults7.Text;
+                    break;
+                case 7:
+                    temp = btnResults8.Text;
+                    break;
+                case 8:
+                    temp = btnResults9.Text;
+                    break;
+                //case 9:
+                    //temp = btnResults10.Text;
+                    //break;
             }
 
             if (!String.IsNullOrWhiteSpace(temp))
@@ -206,9 +236,7 @@ namespace Finalprog
 
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("~/User Function/Admin.aspx");
-
         }
         protected void btnUser_Click(object sender, EventArgs e)
         {
@@ -216,55 +244,45 @@ namespace Finalprog
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            user eo = (from f in us.users
-                       where f.username == Login.currentUser
+            user eo = (from f in us.users 
+                       where f.username == Login.currentUser 
                        select f).SingleOrDefault();
-
             us.SubmitChanges();
             Login.currentUser = "";
             Response.Redirect("~/User Function/Login.aspx");
         }
-
         protected void btnResults1_Click(object sender, EventArgs e)
         {
             CourseRedirect(0);
         }
-
         protected void btnResults2_Click(object sender, EventArgs e)
         {
             CourseRedirect(1);
         }
-
         protected void btnResults3_Click(object sender, EventArgs e)
         {
             CourseRedirect(2);
         }
-
         protected void btnResults4_Click(object sender, EventArgs e)
         {
             CourseRedirect(3);
         }
-
         protected void btnResults5_Click(object sender, EventArgs e)
         {
             CourseRedirect(4);
         }
-
         protected void btnResults6_Click(object sender, EventArgs e)
         {
             CourseRedirect(5);
         }
-
         protected void btnResults7_Click(object sender, EventArgs e)
         {
             CourseRedirect(6);
         }
-
         protected void btnResults8_Click(object sender, EventArgs e)
         {
             CourseRedirect(7);
         }
-
         protected void btnResults9_Click(object sender, EventArgs e)
         {
             CourseRedirect(8);
