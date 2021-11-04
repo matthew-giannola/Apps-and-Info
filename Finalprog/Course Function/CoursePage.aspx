@@ -13,7 +13,8 @@
             
             <asp:Button ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="AdminPage" Visible="False" BorderStyle="None" Height="25px" Width="130px" />
             <asp:Button ID="btnUser" runat="server" OnClick="btnUser_Click" Text="User Page" BorderStyle="None" Height="25px" Width="130px" />
-&nbsp;<hr />
+&nbsp;<asp:Button ID="btnCourseAdmin" runat="server" OnClick="btnCourseAdmin_Click" Text="Course Admin" BorderStyle="None" Height="25px" Width="130px" Visible="False" />
+            <hr />
             <br />
             <br />
             <br />

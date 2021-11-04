@@ -73,7 +73,12 @@
     <Content Include="App_Data\Users_log.ldf">
       <DependentUpon>Users.mdf</DependentUpon>
     </Content>
+    <Content Include="Course Function\CourseAdmin.aspx" />
+    <Content Include="Course Function\CourseCreation.aspx" />
+    <Content Include="Course Function\CourseEdit.aspx" />
     <Content Include="Course Function\CoursePage.aspx" />
+    <Content Include="Course Function\QuizCreation.aspx" />
+    <Content Include="Course Function\QuizEdit.aspx" />
     <Content Include="Course Function\Quiz_Page.aspx" />
     <Content Include="Search Function\CSS\searchButtonStyle.css" />
     <Content Include="User Function\Admin.aspx" />
@@ -86,12 +91,47 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Course Function\CourseAdmin.aspx.cs">
+      <DependentUpon>CourseAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Course Function\CourseAdmin.aspx.designer.cs">
+      <DependentUpon>CourseAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Course Function\CourseCreation.aspx.cs">
+      <DependentUpon>CourseCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Course Function\CourseCreation.aspx.designer.cs">
+      <DependentUpon>CourseCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Course Function\CourseEdit.aspx.cs">
+      <DependentUpon>CourseEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Course Function\CourseEdit.aspx.designer.cs">
+      <DependentUpon>CourseEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Course Function\CoursePage.aspx.cs">
       <DependentUpon>CoursePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Course Function\CoursePage.aspx.designer.cs">
       <DependentUpon>CoursePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Course Function\QuizCreation.aspx.cs">
+      <DependentUpon>QuizCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Course Function\QuizCreation.aspx.designer.cs">
+      <DependentUpon>QuizCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Course Function\QuizEdit.aspx.cs">
+      <DependentUpon>QuizEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Course Function\QuizEdit.aspx.designer.cs">
+      <DependentUpon>QuizEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Course Function\Quiz_Page.aspx.cs">
       <DependentUpon>Quiz_Page.aspx</DependentUpon>
@@ -157,6 +197,9 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserDataClasses.cs">
+      <DependentUpon>UserDataClasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="UserDataClasses.designer.cs">
       <AutoGen>True</AutoGen>

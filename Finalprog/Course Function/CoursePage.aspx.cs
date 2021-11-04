@@ -17,6 +17,15 @@ namespace Finalprog
         public static Int32 course;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            getRole();
+            quizCheck();
+            loadVideo();
+            loadClass();
+        }
+        //Checks user rights
+        private void getRole()
+        {
             if (String.IsNullOrWhiteSpace(Login.currentUser))
             {
                 Response.Redirect("Login.aspx");
@@ -31,14 +40,22 @@ namespace Finalprog
                 if (role == "Admin")
                 {
                     btnAdmin.Visible = true;
+                    btnCourseAdmin.Visible = true;
                 }
             }
+        }
+        //Checks if quiz is available in DB
+        private void quizCheck()
+        {
             if (!us.quizzes.Where(a => a.courseid == course).Any())
             {
                 testButton.Visible = false;
             }
 
-            //--------------------------------------------------------------
+        }
+        //Creates video frame with url from DB
+        private void loadVideo()
+        {
             var video_id = us.Classes.Where(a => a.Id == course).Select(a => a.videourl).FirstOrDefault();
 
             // Gets the video url from the database
@@ -47,8 +64,10 @@ namespace Finalprog
             video_id = "https://www.youtube.com/embed/" + video_id;
             videoframe.Text = String.Format(@"<iframe width=""628"" height=""374"" src=""{0}"" frameborder=""0"" allowfullscreen></iframe>", video_id);
             test.Controls.Add(videoframe);
-
-
+        }
+        //Loads class information from DB
+        private void loadClass()
+        {
             var currentclass = us.Classes.Where(a => a.Id == course).FirstOrDefault();
 
             lblCourse.Text = currentclass.Id + " " + currentclass.courseTitle;
@@ -78,9 +97,6 @@ namespace Finalprog
                 zoomLabel.Text = zoom;
             }
             teachLabel.Text = "Teacher: " + teacher;
-
-            //--------------------------------------------------------------
-
         }
         public void updateCourse(Int32 courseId)
         {
@@ -92,7 +108,6 @@ namespace Finalprog
 
             Quiz_Page.course = course;
             Response.Redirect("Quiz_Page.aspx", false);
-
         }
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
@@ -103,6 +118,10 @@ namespace Finalprog
         protected void btnUser_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User Function/UserPage.aspx");
+        }
+        protected void btnCourseAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CourseAdmin.aspx");
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {
