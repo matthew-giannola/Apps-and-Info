@@ -1,0 +1,66 @@
+﻿/*for the searching of new criteria*/
+.SearchBarArea {
+    width: 100%;
+    margin-top: 10px;
+    margin: auto;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: left;
+    margin: 1px;
+}
+.SearchBar {
+    height: 40px;
+    width: 100%;
+}
+.SearchButton {
+    width: 130px;
+    height: 40px;
+    margin: auto;
+    color: snow;
+    background-color: gray;
+}
+    .SearchButton:hover {
+        background-color: navy;
+    }
+
+/*for the tiles*/
+.TileLayout {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-40%);
+    text-align: left;
+    margin: 1px;
+}
+.Tile {
+    width: 40%;
+    float: left;
+    border-radius: 25px;
+    background-color: navy;
+    padding: 20px;
+    border: 3px solid snow;
+}
+.TopOfTile {
+    float: left;
+    white-space: normal;
+    color: snow;
+    border: none;
+    background-color: navy;
+    font-size: 15px;
+    font-family: 'Lucida Console';
+}
+.Description {
+    width: 100%;
+    float: left;
+    color: snow;
+    background-color: navy;
+    font-size: 15px;
+    font-family: 'Lucida Console';
+}
+
+/*other stuff*/
+.outer {
+    display: inline-block;
+}
+#form1 {
+    height: 302px;
+}

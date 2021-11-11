@@ -84,7 +84,6 @@ namespace Finalprog.Course_Function
                         description = descTxt.Text,
                         videourl = videoTxt.Text,
                         professorName = profTxt.Text,
-                        name = name,
                         lectureHours = lecture,
                         studentNumber = studentNum,
                         credits = credits,

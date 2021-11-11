@@ -80,7 +80,8 @@
     <Content Include="Course Function\QuizCreation.aspx" />
     <Content Include="Course Function\QuizEdit.aspx" />
     <Content Include="Course Function\Quiz_Page.aspx" />
-    <Content Include="Search Function\CSS\searchButtonStyle.css" />
+    <Content Include="Search Function\Navigation Bar.css" />
+    <Content Include="Search Function\Results.css" />
     <Content Include="User Function\AboutUs.aspx" />
     <Content Include="User Function\Admin.aspx" />
     <Content Include="User Function\CreateUser.aspx" />

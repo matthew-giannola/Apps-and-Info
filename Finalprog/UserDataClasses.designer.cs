@@ -1208,8 +1208,6 @@ namespace Finalprog
 		
 		private string _professorName;
 		
-		private string _name;
-		
 		private System.Nullable<int> _lectureHours;
 		
 		private System.Nullable<int> _studentNumber;
@@ -1338,26 +1336,6 @@ namespace Finalprog
 					this._professorName = value;
 					this.SendPropertyChanged("professorName");
 					this.OnprofessorNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(4)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
 				}
 			}
 		}

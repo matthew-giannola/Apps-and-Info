@@ -821,7 +821,6 @@ C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\bin\Microsoft.CodeDom.Pr
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csproj.AssemblyReference.cache
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csproj.CoreCompileInputs.cache
-C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csproj.CopyComplete
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.dll
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.pdb
 C:\Users\hzant\Documents\GitHub\Full project\Apps-and-Info\11-3-2021\Finalprog\obj\Debug\Finalprog.csproj.AssemblyReference.cache
