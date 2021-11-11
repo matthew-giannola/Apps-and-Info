@@ -81,6 +81,7 @@
     <Content Include="Course Function\QuizEdit.aspx" />
     <Content Include="Course Function\Quiz_Page.aspx" />
     <Content Include="Search Function\CSS\searchButtonStyle.css" />
+    <Content Include="User Function\AboutUs.aspx" />
     <Content Include="User Function\Admin.aspx" />
     <Content Include="User Function\CreateUser.aspx" />
     <Content Include="User Function\ForgotPassword.aspx" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="Course Function\Quiz_Page.aspx.designer.cs">
       <DependentUpon>Quiz_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User Function\AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User Function\AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="User Function\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
