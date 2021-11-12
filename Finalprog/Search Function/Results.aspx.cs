@@ -57,12 +57,10 @@ namespace Finalprog
 
             foreach (var c in search)
             {
-                //for the new tiles
                 String CourseID = c.Id.ToString();
                 String CourseName = c.courseTitle.ToString();
                 String Description = c.description.ToString();
                 DynamicCreateTile(i + 1, CourseID, CourseName, Description);
-                //CreateTile(i, courseID, CourseName, Professor, Description);
                 i++;
             }
         }
@@ -87,6 +85,14 @@ namespace Finalprog
                 Search(searchText);
             }
         }
+        //Code block for the dynmaic adding of the tiles.
+        //Functions in this block:
+        //  DynamicCreateTile
+        //  CreateButton_CourseName     **part of problem**
+        //  CreateLabel_CourseID
+        //  CreateLabel_Description
+        //  Button_Click                **part of problem**
+        //  CourseRedirect              **part of problem**
         private void DynamicCreateTile(int i, string CourseID, string CourseName, string Description)
         {
             CreateButton_CourseName(i, CourseName, CourseID);
@@ -134,6 +140,9 @@ namespace Finalprog
                 Response.Redirect("~/Course Function/CoursePage.aspx");
             }
         }
+
+
+        //Normal Button Click Events
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User Function/Admin.aspx");
