@@ -25,8 +25,8 @@
 /*for the tiles*/
 .TileLayout {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 49%;
+    top: 81%;
     transform: translateX(-50%) translateY(-40%);
     text-align: left;
     margin: 1px;
@@ -58,9 +58,7 @@
 }
 
 /*other stuff*/
-.outer {
-    display: inline-block;
-}
 #form1 {
+    border-top: none;
     height: 302px;
 }

@@ -18,14 +18,8 @@ namespace Finalprog
     public partial class REsults : System.Web.UI.Page
     {
         public static UserDataClassesDataContext us = new UserDataClassesDataContext();
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            clearnewTiles();
             if (String.IsNullOrWhiteSpace(Login.currentUser))
             {
                 Response.Redirect("Login.aspx");
@@ -50,10 +44,6 @@ namespace Finalprog
                 }
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="searchText"></param>
         private void Search(string searchText)
         {
             int i = 0;
@@ -68,25 +58,14 @@ namespace Finalprog
             foreach (var c in search)
             {
                 //for the new tiles
-                String courseID = c.Id.ToString();
+                String CourseID = c.Id.ToString();
                 String CourseName = c.courseTitle.ToString();
-                String Professor = c.professorName.ToString();
                 String Description = c.description.ToString();
-                CreateNewTile(i, courseID, CourseName, Professor, Description);
-                
-                //button tiles
-                //String temp = ("Course: " + c.Id.ToString() + " " + 
-                    //c.description.ToString() + " " + c.professorName.ToString() + " ");
-                //CreateTile(i, temp);
+                DynamicCreateTile(i + 1, CourseID, CourseName, Description);
+                //CreateTile(i, courseID, CourseName, Professor, Description);
                 i++;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="search"></param>
-        /// <returns></returns>
-        /// 
         private bool searchCheck(string search)
         {
             if (search != null && !String.IsNullOrWhiteSpace(txtResultsSearch.Text))
@@ -98,14 +77,8 @@ namespace Finalprog
                 return false;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected void btnResultsSearch_Click(object sender, EventArgs e)
         {
-            clearnewTiles();
             string searchText = txtResultsSearch.Text;
             bool check = searchCheck(searchText);
 
@@ -114,94 +87,45 @@ namespace Finalprog
                 Search(searchText);
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        private void clearnewTiles()
+        private void DynamicCreateTile(int i, string CourseID, string CourseName, string Description)
         {
-            Tile1.Visible = false;
-            Tile2.Visible = false;
-            Tile3.Visible = false;
-            Tile4.Visible = false;
-            Tile5.Visible = false;
-            Tile6.Visible = false;
-            Tile7.Visible = false;
-            Tile8.Visible = false;
-            Tile9.Visible = false;
-            Tile10.Visible = false;
+            CreateButton_CourseName(i, CourseName, CourseID);
+            CreateLabel_CourseID(i, CourseID);
+            CreateLabel_Description(i, Description);
         }
-        private void CreateNewTile(int i, string CourseID, string CourseName, string Professor, string Description)
+        private void CreateButton_CourseName(int i, string CourseName, string CourseID)
         {
-            switch(i)
+            System.Web.UI.HtmlControls.HtmlButton Course_Name = new System.Web.UI.HtmlControls.HtmlButton();
+            Course_Name.ID = "btn_CourseName" + i.ToString();
+            Course_Name.InnerHtml = CourseName;
+            Course_Name.ServerClick += new System.EventHandler((sender, e) => Button_Click(sender, e, CourseID));
+            Page.Controls.Add(Course_Name);
+        }
+        private void CreateLabel_CourseID(int i, string CourseID)
+        {
+            System.Web.UI.WebControls.Label Course_ID = new System.Web.UI.WebControls.Label();
+            Course_ID.CssClass = "TopOfTile";
+            Course_ID.ID = "lbl_CourseID" + i.ToString();
+            Course_ID.Text = CourseID;
+            Page.Controls.Add(Course_ID);
+        }
+        private void CreateLabel_Description(int i, string Description)
+        {
+            System.Web.UI.WebControls.Label description = new System.Web.UI.WebControls.Label();
+            description.CssClass = "Description";
+            description.ID = "lbl_Description" + i.ToString();
+            description.Text = Description;
+            Page.Controls.Add(description);
+        }
+        void Button_Click(object sender, EventArgs e, string CourseID)
+        {
+            int Course_ID = Int32.Parse(CourseID);
+            if (Course_ID != null)
             {
-                case 0:
-                    Tile1.Visible = true;
-                    lbl_CourseID_1.Text = CourseID;
-                    btn_CourseName_1.Text = CourseName;
-                    lbl_Description_1.Text = Description;
-                    break;
-                case 1:
-                    Tile2.Visible = true;
-                    lbl_CourseID_2.Text = CourseID;
-                    btn_CourseName_2.Text = CourseName;
-                    lbl_Description_2.Text = Description;
-                    break;
-                case 2:
-                    Tile3.Visible = true;
-                    lbl_CourseID_3.Text = CourseID;
-                    btn_CourseName_3.Text = CourseName;
-                    lbl_Description_3.Text = Description;
-                    break;
-                case 3:
-                    Tile4.Visible = true;
-                    lbl_CourseID_4.Text = CourseID;
-                    btn_CourseName_4.Text = CourseName;
-                    lbl_Description_4.Text = Description;
-                    break;
-                case 4:
-                    Tile5.Visible = true;
-                    lbl_CourseID_5.Text = CourseID;
-                    btn_CourseName_5.Text = CourseName;
-                    lbl_Description_5.Text = Description;
-                    break;
-                case 5:
-                    Tile6.Visible = true;
-                    lbl_CourseID_6.Text = CourseID;
-                    btn_CourseName_6.Text = CourseName;
-                    lbl_Description_6.Text = Description;
-                    break;
-                case 6:
-                    Tile7.Visible = true;
-                    lbl_CourseID_7.Text = CourseID;
-                    btn_CourseName_7.Text = CourseName;
-                    lbl_Description_7.Text = Description;
-                    break;
-                case 7:
-                    Tile8.Visible = true;
-                    lbl_CourseID_8.Text = CourseID;
-                    btn_CourseName_8.Text = CourseName;
-                    lbl_Description_8.Text = Description;
-                    break;
-                case 8:
-                    Tile9.Visible = true;
-                    lbl_CourseID_9.Text = CourseID;
-                    btn_CourseName_9.Text = CourseName;
-                    lbl_Description_9.Text = Description;
-                    break;
-                case 9:
-                    Tile10.Visible = true;
-                    lbl_CourseID_10.Text = CourseID;
-                    btn_CourseName_10.Text = CourseName;
-                    lbl_Description_10.Text = Description;
-                    break;
+                CoursePage.course = Course_ID;
+                Response.Redirect("~/Course Function/CoursePage.aspx");
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <summary>
-        /// 
-        /// </summary>
         private void CourseRedirect(int CourseID)
         {
             if (CourseID != null)
@@ -210,12 +134,6 @@ namespace Finalprog
                 Response.Redirect("~/Course Function/CoursePage.aspx");
             }
         }
-
-        private Color RandomColor() {
-            var rand = new Random();
-            return Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256));
-        }
-
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User Function/Admin.aspx");
@@ -233,96 +151,9 @@ namespace Finalprog
             Login.currentUser = "";
             Response.Redirect("~/User Function/Login.aspx");
         }
-
-        //results clicking
-        protected void btnResults1_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(0);
-        }
-        protected void btnResults2_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(1);
-        }
-        protected void btnResults3_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(2);
-        }
-        protected void btnResults4_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(3);
-        }
-        protected void btnResults5_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(4);
-        }
-        protected void btnResults6_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(5);
-        }
-        protected void btnResults7_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(6);
-        }
-        protected void btnResults8_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(7);
-        }
-        protected void btnResults9_Click(object sender, EventArgs e)
-        {
-            //CourseRedirect(8);
-        }
-        
-        //for the new tiles
-        //this is only here for testing right now.
-        //please do not touch this.
         protected void Results1_Click(object sender, EventArgs e)
         {
             int CourseID = Int32.Parse(lbl_CourseID_1.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results2_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_2.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results3_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_3.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results4_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_4.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results5_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_5.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results6_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_6.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results7_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_7.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results8_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_8.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results9_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_9.Text);
-            CourseRedirect(CourseID);
-        }
-        protected void Results10_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_10.Text);
             CourseRedirect(CourseID);
         }
     }
