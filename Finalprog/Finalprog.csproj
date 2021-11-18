@@ -89,6 +89,7 @@
     <Content Include="User Function\Login.aspx" />
     <Content Include="Search Function\Results.aspx" />
     <Content Include="Search Function\SearchPage.aspx" />
+    <Content Include="User Function\Navigation Bar.css" />
     <Content Include="User Function\UserPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

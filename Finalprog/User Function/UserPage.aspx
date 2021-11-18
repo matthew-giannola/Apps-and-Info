@@ -4,11 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+        <link rel="stylesheet" href="Navigation Bar.css" />
     <title></title>
     <style type="text/css">
         #TextArea1 {
             height: 78px;
             width: 193px;
+        }
+        .NavBar {
+            height: 5px;
         }
     </style>
 </head>
@@ -16,11 +20,19 @@
     <form id="form1" runat="server">
         <div id="formDiv">
             <header style="background-color: #808080">
-                <asp:Button ID="btnLogout" runat="server" Height="25px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="None" />
+<%--                <asp:Button ID="btnLogout" runat="server" Height="25px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="None" />
                 <asp:Button ID="btnCourse" runat="server" OnClick="btnCourse_Click" Text="Course Search" BorderStyle="None" Height="25px" Width="130px" />
-                <asp:Button ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="AdminPage" Visible="False" BorderStyle="None" Height="25px" Width="130px" BorderColor="White" />
+                <asp:Button ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="AdminPage" Visible="False" BorderStyle="None" Height="25px" Width="130px" BorderColor="White" />--%>
+                <div>
+                    <div class="NavBar" runat="server">
+                        <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Log Out" CssClass="navButton" />
+                        <asp:Button ID="btnCourse" runat="server" OnClick="btnCourse_Click" Text="Course Search" CssClass="navButton" />
+                        <asp:Button ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="AdminPage" Visible="False" CssClass="navButton" />
+                    </div>
+                    &nbsp;
+                </div>
+
                 &nbsp;
-            <hr />
             </header>
             <br />
             <br />

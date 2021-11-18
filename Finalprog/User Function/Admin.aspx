@@ -4,16 +4,31 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="Navigation Bar.css" />
     <title></title>
+    <style type="text/css">
+        .NavBar {
+            height: 22px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Button ID="btnLogout" runat="server" Height="25px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="None" />
+        <header style="background-color: #808080">
+            <%--<asp:Button ID="btnLogout" runat="server" Height="25px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="None" />
             <asp:Button ID="btnCourse" runat="server" OnClick="btnCourse_Click" Text="Course Search" BorderStyle="None" Height="25px" Width="130px" />
-            <asp:Button ID="btnUser" runat="server" OnClick="btnUser_Click" Text="User Page" BorderStyle="None" Height="25px" Width="130px" />
-&nbsp;<hr />
-        </div>
+            <asp:Button ID="btnUser" runat="server" OnClick="btnUser_Click" Text="User Page" BorderStyle="None" Height="25px" Width="130px" />--%>
+            <div class="NavBar" runat="server">
+                <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Log Out" CssClass="navButton" />
+                <asp:Button ID="btnCourse" runat="server" OnClick="btnCourse_Click" Text="Course Search" CssClass="navButton" />
+                <asp:Button ID="btnUser" runat="server" OnClick="btnUser_Click" Text="User Page" CssClass="navButton" />
+            </div>
+            &nbsp;
+
+        </header>
+
+        <br />
+        <br />
         <br />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
             <Columns>
@@ -32,15 +47,15 @@
         <br />
         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
             <Columns>
-                <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
+                <asp:BoundField DataField="courseTitle" HeaderText="courseTitle" SortExpression="courseTitle" />
                 <asp:BoundField DataField="professorName" HeaderText="professorName" SortExpression="professorName" />
-                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
                 <asp:BoundField DataField="lectureHours" HeaderText="lectureHours" SortExpression="lectureHours" />
                 <asp:BoundField DataField="credits" HeaderText="credits" SortExpression="credits" />
                 <asp:BoundField DataField="review" HeaderText="review" SortExpression="review" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:UsersConnectionString %>" SelectCommand="SELECT [description], [professorName], [name], [lectureHours], [credits], [review] FROM [Classes]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:UsersConnectionString %>" SelectCommand="SELECT [courseTitle], [professorName], [description], [lectureHours], [credits], [review] FROM [Classes]"></asp:SqlDataSource>
     </form>
 </body>
 </html>
