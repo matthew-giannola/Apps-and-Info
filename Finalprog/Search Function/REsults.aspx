@@ -27,6 +27,7 @@
             <asp:HiddenField ID="CourseName" runat="server" ClientIDMode="Static" />
             <asp:HiddenField ID="Description" runat="server" ClientIDMode="Static" />
 
+            <!--this is the code for the old style of tiles-->
             <!--<div class="Tile" runat="server" id="Tile1">                                                                            
                 <asp:Image ID="img_TileImage1" runat="server" />                                                                    
                 <asp:Button ID="btn_CourseName_1" runat="server" Text="Button" OnClick="Results1_Click" CssClass="TopOfTile"/>      

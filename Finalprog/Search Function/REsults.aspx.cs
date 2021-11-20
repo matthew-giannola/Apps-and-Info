@@ -88,6 +88,7 @@ namespace Finalprog
         //Code block for the dynmaic adding of the tiles.
         //Functions in this block:
         //  DynamicCreateTile
+        //  CreateTile                  **Currently Working on**    **New Solution?**
         //  CreateButton_CourseName     **part of problem**
         //  CreateLabel_CourseID
         //  CreateLabel_Description
@@ -95,10 +96,49 @@ namespace Finalprog
         //  CourseRedirect              **part of problem**
         private void DynamicCreateTile(int i, string CourseID, string CourseName, string Description)
         {
-            CreateButton_CourseName(i, CourseName, CourseID);
-            CreateLabel_CourseID(i, CourseID);
-            CreateLabel_Description(i, Description);
+            CreateTile(i, CourseName, CourseID);
+            //CreateButton_CourseName(i, CourseName, CourseID);
+            //CreateLabel_CourseID(i, CourseID);
+            //CreateLabel_Description(i, Description);
         }
+        private void CreateTile(int i, string CourseName, string CourseID)
+        {
+            //Notes
+            /*
+             * currently nothing pops up when this code is run.
+             * fixes for the code need to be to have it become visible.
+             * this is a skeleton code for the pannel design will need a lot of work to get this to function as it should.
+             */
+
+            //Creates the items so that they are usable. each one is created for each result in the search.
+            System.Web.UI.WebControls.Panel Tile = new System.Web.UI.WebControls.Panel();
+            System.Web.UI.HtmlControls.HtmlButton Course_Name = new System.Web.UI.HtmlControls.HtmlButton();
+            System.Web.UI.WebControls.Label Course_ID = new System.Web.UI.WebControls.Label();
+            System.Web.UI.WebControls.Label description = new System.Web.UI.WebControls.Label();
+
+            //Sets the ID to be incremented so that there can be more than 1 of each of them.
+            Tile.ID = "pnl_Tile" + i.ToString();
+            Course_Name.ID = "btn_CourseName" + i.ToString();
+            Course_ID.ID = "lbl_CourseID" + i.ToString();
+            description.ID = "lbl_Description" + i.ToString();
+
+            //Adds them to the panel
+            Tile.Controls.Add(Course_Name);
+            Tile.Controls.Add(new LiteralControl("<br />"));
+            Tile.Controls.Add(Course_ID);
+            Tile.Controls.Add(new LiteralControl("<br />"));
+            Tile.Controls.Add(description);
+            Tile.Controls.Add(new LiteralControl("<br />"));
+
+            //Need to add event to the button so that it is able to be linked to a course page.
+
+
+            //Makes it so the panel is visible
+            Tile.Visible = true;
+
+        }
+
+        //Older dynamic tiles.
         private void CreateButton_CourseName(int i, string CourseName, string CourseID)
         {
             System.Web.UI.HtmlControls.HtmlButton Course_Name = new System.Web.UI.HtmlControls.HtmlButton();
@@ -123,6 +163,9 @@ namespace Finalprog
             description.Text = Description;
             Page.Controls.Add(description);
         }
+
+
+        //Button clicking Functions
         void Button_Click(object sender, EventArgs e, string CourseID)
         {
             int Course_ID = Int32.Parse(CourseID);
