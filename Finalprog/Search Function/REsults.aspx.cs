@@ -46,8 +46,10 @@ namespace Finalprog
         }
         private void Search(string searchText)
         {
+            //declaration of the amount (set to 0 initally) for the amount of classes.
             int i = 0;
 
+            //finds the data set that matches the search requirements.
             UserDataClassesDataContext us = new UserDataClassesDataContext();
             var search = (from c in us.Classes
                           where (c.Id.ToString().Contains(searchText) ||
@@ -55,12 +57,15 @@ namespace Finalprog
                           c.description.ToString().Contains(searchText))
                           select c).ToList();
 
+            //creating of the tiles.
             foreach (var c in search)
             {
                 String CourseID = c.Id.ToString();
                 String CourseName = c.courseTitle.ToString();
                 String Description = c.description.ToString();
-                DynamicCreateTile(i + 1, CourseID, CourseName, Description);
+                CreateButton_CourseName(i, CourseName, CourseID);
+                CreateLabel_CourseID(i, CourseID);
+                CreateLabel_Description(i, Description, CourseID);
                 i++;
             }
         }
@@ -86,96 +91,42 @@ namespace Finalprog
             }
         }
         //Code block for the dynmaic adding of the tiles.
-        //Functions in this block:
-        //  DynamicCreateTile
-        //  CreateTile                  **Currently Working on**    **New Solution?**
-        //  CreateButton_CourseName     **part of problem**
-        //  CreateLabel_CourseID
-        //  CreateLabel_Description
-        //  Button_Click                **part of problem**
-        //  CourseRedirect              **part of problem**
-        private void DynamicCreateTile(int i, string CourseID, string CourseName, string Description)
-        {
-            CreateTile(i, CourseName, CourseID);
-            //CreateButton_CourseName(i, CourseName, CourseID);
-            //CreateLabel_CourseID(i, CourseID);
-            //CreateLabel_Description(i, Description);
-        }
-        private void CreateTile(int i, string CourseName, string CourseID)
-        {
-            //Notes
-            /*
-             * currently nothing pops up when this code is run.
-             * fixes for the code need to be to have it become visible.
-             * this is a skeleton code for the pannel design will need a lot of work to get this to function as it should.
-             */
-
-            //Creates the items so that they are usable. each one is created for each result in the search.
-            System.Web.UI.WebControls.Panel Tile = new System.Web.UI.WebControls.Panel();
-            System.Web.UI.HtmlControls.HtmlButton Course_Name = new System.Web.UI.HtmlControls.HtmlButton();
-            System.Web.UI.WebControls.Label Course_ID = new System.Web.UI.WebControls.Label();
-            System.Web.UI.WebControls.Label description = new System.Web.UI.WebControls.Label();
-
-            //Sets the ID to be incremented so that there can be more than 1 of each of them.
-            Tile.ID = "pnl_Tile" + i.ToString();
-            Course_Name.ID = "btn_CourseName" + i.ToString();
-            Course_ID.ID = "lbl_CourseID" + i.ToString();
-            description.ID = "lbl_Description" + i.ToString();
-
-            //Adds them to the panel
-            Tile.Controls.Add(Course_Name);
-            Tile.Controls.Add(new LiteralControl("<br />"));
-            Tile.Controls.Add(Course_ID);
-            Tile.Controls.Add(new LiteralControl("<br />"));
-            Tile.Controls.Add(description);
-            Tile.Controls.Add(new LiteralControl("<br />"));
-
-            //Need to add event to the button so that it is able to be linked to a course page.
-
-
-            //Makes it so the panel is visible
-            Tile.Visible = true;
-
-        }
-
-        //Older dynamic tiles.
         private void CreateButton_CourseName(int i, string CourseName, string CourseID)
         {
-            System.Web.UI.HtmlControls.HtmlButton Course_Name = new System.Web.UI.HtmlControls.HtmlButton();
-            Course_Name.ID = "btn_CourseName" + i.ToString();
-            Course_Name.InnerHtml = CourseName;
-            Course_Name.ServerClick += new System.EventHandler((sender, e) => Button_Click(sender, e, CourseID));
+            LinkButton Course_Name = new LinkButton
+            {
+                ID = "hl_CourseName" + i.ToString(),
+                Text = CourseName,
+                CssClass = "TopOfTile",
+                CausesValidation = false
+            };
+            Course_Name.Click += new EventHandler((sender, e) => Button_Click(sender, e, Int32.Parse(CourseID)));
             Page.Controls.Add(Course_Name);
         }
         private void CreateLabel_CourseID(int i, string CourseID)
         {
-            System.Web.UI.WebControls.Label Course_ID = new System.Web.UI.WebControls.Label();
-            Course_ID.CssClass = "TopOfTile";
-            Course_ID.ID = "lbl_CourseID" + i.ToString();
-            Course_ID.Text = CourseID;
+            System.Web.UI.WebControls.Label Course_ID = new System.Web.UI.WebControls.Label
+            {
+                ID = "lbl_CourseID" + CourseID,
+                Text = CourseID,
+                CssClass = "TopOfTile"
+            };
             Page.Controls.Add(Course_ID);
         }
-        private void CreateLabel_Description(int i, string Description)
+        private void CreateLabel_Description(int i, string Description, string CourseID)
         {
-            System.Web.UI.WebControls.Label description = new System.Web.UI.WebControls.Label();
-            description.CssClass = "Description";
-            description.ID = "lbl_Description" + i.ToString();
-            description.Text = Description;
+            System.Web.UI.WebControls.Label description = new System.Web.UI.WebControls.Label
+            {
+                ID = "lbl_Description" + CourseID,
+                Text = Description,
+                CssClass = "Description"
+            };
             Page.Controls.Add(description);
         }
 
 
         //Button clicking Functions
-        void Button_Click(object sender, EventArgs e, string CourseID)
-        {
-            int Course_ID = Int32.Parse(CourseID);
-            if (Course_ID != null)
-            {
-                CoursePage.course = Course_ID;
-                Response.Redirect("~/Course Function/CoursePage.aspx");
-            }
-        }
-        private void CourseRedirect(int CourseID)
+        private void Button_Click(object sender, EventArgs e, int CourseID)
         {
             if (CourseID != null)
             {
@@ -203,10 +154,6 @@ namespace Finalprog
             Login.currentUser = "";
             Response.Redirect("~/User Function/Login.aspx");
         }
-        protected void Results1_Click(object sender, EventArgs e)
-        {
-            int CourseID = Int32.Parse(lbl_CourseID_1.Text);
-            CourseRedirect(CourseID);
-        }
+        public override void VerifyRenderingInServerForm(System.Web.UI.Control control){/*there should be nothing in this*/}
     }
 }
