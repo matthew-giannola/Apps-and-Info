@@ -22,39 +22,9 @@
         background-color: navy;
     }
 
-/*for the tiles*/
-.TileLayout {
-    position: absolute;
-    left: 49%;
-    top: 81%;
-    transform: translateX(-50%) translateY(-40%);
-    text-align: left;
-    margin: 1px;
-}
-.Tile {
-    width: 40%;
-    float: left;
-    border-radius: 25px;
+.linkbutton a{
+    text-decoration: none;
     background-color: navy;
-    padding: 20px;
-    border: 3px solid snow;
-}
-.TopOfTile {
-    float: left;
-    white-space: normal;
-    color: snow;
-    border: none;
-    background-color: navy;
-    font-size: 15px;
-    font-family: 'Lucida Console';
-}
-.Description {
-    width: 100%;
-    float: left;
-    color: snow;
-    background-color: navy;
-    font-size: 15px;
-    font-family: 'Lucida Console';
 }
 
 /*other stuff*/

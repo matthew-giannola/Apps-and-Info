@@ -97,7 +97,7 @@ namespace Finalprog
             {
                 ID = "hl_CourseName" + i.ToString(),
                 Text = CourseName,
-                CssClass = "TopOfTile",
+                CssClass = "Tile",
                 CausesValidation = false
             };
             Course_Name.Click += new EventHandler((sender, e) => Button_Click(sender, e, Int32.Parse(CourseID)));
@@ -109,7 +109,7 @@ namespace Finalprog
             {
                 ID = "lbl_CourseID" + CourseID,
                 Text = CourseID,
-                CssClass = "TopOfTile"
+                CssClass = "Tile"
             };
             Page.Controls.Add(Course_ID);
         }
@@ -119,7 +119,7 @@ namespace Finalprog
             {
                 ID = "lbl_Description" + CourseID,
                 Text = Description,
-                CssClass = "Description"
+                CssClass = "Tile"
             };
             Page.Controls.Add(description);
         }
