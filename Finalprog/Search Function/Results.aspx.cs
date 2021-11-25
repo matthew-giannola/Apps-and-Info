@@ -18,6 +18,10 @@ namespace Finalprog
     public partial class REsults : System.Web.UI.Page
     {
         public static UserDataClassesDataContext us = new UserDataClassesDataContext();
+        public LinkButton[] CourseNames = new LinkButton[10];
+        public System.Web.UI.WebControls.Label[] Descriptions = new System.Web.UI.WebControls.Label[10];
+        public System.Web.UI.WebControls.Label[] CourseIDs = new System.Web.UI.WebControls.Label[10];
+        public int[] CoursesID = new int[10];
         protected void Page_Load(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(Login.currentUser))
@@ -60,7 +64,9 @@ namespace Finalprog
             //creating of the tiles.
             foreach (var c in search)
             {
+                Deletion(i);
                 String CourseID = c.Id.ToString();
+                CoursesID[i] = Int32.Parse(CourseID);
                 String CourseName = c.courseTitle.ToString();
                 String Description = c.description.ToString();
                 CreateButton_CourseName(i, CourseName, CourseID);
@@ -90,6 +96,12 @@ namespace Finalprog
                 Search(searchText);
             }
         }
+        private void Deletion(int i)
+        {
+            Page.Controls.Remove(CourseNames[i]);
+            Page.Controls.Remove(CourseIDs[i]);
+            Page.Controls.Remove(Descriptions[i]);
+        }
         //Code block for the dynmaic adding of the tiles.
         private void CreateButton_CourseName(int i, string CourseName, string CourseID)
         {
@@ -97,10 +109,10 @@ namespace Finalprog
             {
                 ID = "hl_CourseName" + i.ToString(),
                 Text = CourseName,
-                CssClass = "Tile",
-                CausesValidation = false
+                CssClass = "Tile"
             };
             Course_Name.Click += new EventHandler((sender, e) => Button_Click(sender, e, Int32.Parse(CourseID)));
+            CourseNames[i] = Course_Name;
             Page.Controls.Add(Course_Name);
         }
         private void CreateLabel_CourseID(int i, string CourseID)
@@ -111,6 +123,7 @@ namespace Finalprog
                 Text = CourseID,
                 CssClass = "Tile"
             };
+            CourseIDs[i] = Course_ID;
             Page.Controls.Add(Course_ID);
         }
         private void CreateLabel_Description(int i, string Description, string CourseID)
@@ -121,6 +134,7 @@ namespace Finalprog
                 Text = Description,
                 CssClass = "Tile"
             };
+            Descriptions[i] = description;
             Page.Controls.Add(description);
         }
 
@@ -128,14 +142,15 @@ namespace Finalprog
         //Button clicking Functions
         private void Button_Click(object sender, EventArgs e, int CourseID)
         {
-            if (CourseID != null)
+            for (int i = 0; i < 10; i++)
             {
-                CoursePage.course = CourseID;
-                Response.Redirect("~/Course Function/CoursePage.aspx");
+                if (CoursesID[i] == CourseID)
+                {
+                    CoursePage.course = CourseID;
+                    Response.Redirect("~/Course Function/CoursePage.aspx");
+                }
             }
         }
-
-
         //Normal Button Click Events
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
