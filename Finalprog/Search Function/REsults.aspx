@@ -9,6 +9,7 @@
     <title></title>
 </head>
 <body>
+    	background: linear-gradient(#f2f2f6, #d3d3e7);
         <!-- This is the nav bar. -->
         <div>
             <div class="NavBar" runat="server">

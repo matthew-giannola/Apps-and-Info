@@ -22,6 +22,8 @@ namespace Finalprog
         public System.Web.UI.WebControls.Label[] Descriptions = new System.Web.UI.WebControls.Label[10];
         public System.Web.UI.WebControls.Label[] CourseIDs = new System.Web.UI.WebControls.Label[10];
         public int[] CoursesID = new int[10];
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(Login.currentUser))
@@ -93,7 +95,8 @@ namespace Finalprog
 
             if (check == true)
             {
-                Search(searchText);
+                Session["searchTerm"] = searchText;
+                Response.Redirect("REsults.aspx");
             }
         }
         private void Deletion(int i)
