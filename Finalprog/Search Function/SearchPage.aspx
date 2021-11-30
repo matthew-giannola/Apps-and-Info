@@ -94,9 +94,9 @@
 
         <div class ="center" >
                <div id ="searchBox">
-                    <asp:TextBox class="outer" Padding="20px" ID="txtSearch" runat="server" BorderStyle="Solid" Width="331px" Height="18px" Font-Names="Roboto" BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="Large"></asp:TextBox>
+                    <asp:TextBox class="outer" Padding="20px" ID="txtSearch" runat="server" BorderStyle="Solid" Width="331px" Height="18px" Font-Names="Arial" BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="Large"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;
-                    <asp:Button class="outer" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" BorderStyle="Solid" Height="66px" Width="112px" Font-Names="Roboto" BackColor="Transparent" BorderColor="Black" Font-Size="Large" BorderWidth="4px" Font-Bold="True" />
+                    <asp:Button class="outer" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" BorderStyle="Solid" Height="66px" Width="112px" Font-Names="Arial" BackColor="Transparent" BorderColor="Black" Font-Size="Large" BorderWidth="4px" Font-Bold="True" />
                 </div>
             </div>
 
@@ -105,9 +105,9 @@
 
             
 
-            <asp:Button class="outer1" ID="btnLogout" runat="server" bottom="95%" Height="50px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="Solid" BackColor="Transparent" BorderWidth="3px" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="Black" />
-            <asp:Button class="outer1" ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="Admin Page" Visible="False" BorderStyle="Solid" Height="50px" Width="130px" BackColor="Transparent" BorderWidth="3px" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="Black" />
-            <asp:Button class="outer1" ID="btnUser" runat="server" OnClick="btnUser_Click" Text="User Page" BorderStyle="Solid" Height="50px" Width="130px" BackColor="Transparent" BorderWidth="3px" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="Black" />
+            <asp:Button class="outer1" ID="btnLogout" runat="server" bottom="95%" Height="50px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="Solid" BackColor="Transparent" BorderWidth="3px" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Font-Names="Arial" />
+            <asp:Button class="outer1" ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="Admin Page" Visible="False" BorderStyle="Solid" Height="50px" Width="130px" BackColor="Transparent" BorderWidth="3px" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Font-Names="Arial" />
+            <asp:Button class="outer1" ID="btnUser" runat="server" OnClick="btnUser_Click" Text="User Page" BorderStyle="Solid" Height="50px" Width="130px" BackColor="Transparent" BorderWidth="3px" BorderColor="Black" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Font-Names="Arial" />
 &nbsp;</form>
 </body>
 </html>
