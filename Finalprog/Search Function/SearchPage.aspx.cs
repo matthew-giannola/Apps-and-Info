@@ -37,8 +37,11 @@ namespace Finalprog
         {
             try
             {
-                Session["searchTerm"] = txtSearch.Text;
-                Response.Redirect("REsults.aspx");
+                if (txtSearch.Text != null)
+                {
+                    Session["searchTerm"] = txtSearch.Text;
+                    Response.Redirect("REsults.aspx");
+                }
             }
             catch { }
         }

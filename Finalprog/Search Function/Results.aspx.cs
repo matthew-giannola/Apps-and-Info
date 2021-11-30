@@ -52,6 +52,11 @@ namespace Finalprog
         }
         private void Search(string searchText)
         {
+            //Returns if searchtext is null
+            if (searchText == "") {
+                return;
+            }
+
             //declaration of the amount (set to 0 initally) for the amount of classes.
             int i = 0;
 
@@ -66,7 +71,7 @@ namespace Finalprog
             //creating of the tiles.
             foreach (var c in search)
             {
-                Deletion(i);
+                //Deletion(i);
                 String CourseID = c.Id.ToString();
                 CoursesID[i] = Int32.Parse(CourseID);
                 String CourseName = c.courseTitle.ToString();
