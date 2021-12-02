@@ -2,73 +2,90 @@
 
 <!DOCTYPE html>
 
-<style>
-    @font-face {
-        font-family: 'Sucrose Bold Two';
-        src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/sucrose.woff2') format('woff2');
-    }
+    <style>
+        .rcorners1 {
+            border-radius: 25px;
+            background:;
+        }
 
-    @font-face {
-        font-family: 'IM Fell French Canon Pro';
-        src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/im-fell-french-canon-pro.woff2') format('woff2');
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-    }
-
-    header {
-        background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/mountain-range.jpg) no-repeat;
-        padding-top: 61.93333333%;
-        background-size: cover;
-        font-family: 'Sucrose Bold Two';
-    }
-
-        header img {
+        .center {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 45.8%;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            text-align: left;
+            margin: 1px;
         }
 
-        header h1 {
+        .outer {
+            margin: 1px 5px 1px 1px;
+            display: inline-block;
+            border-radius: 25px;
+            background: #73AD21;
+            padding: 20px;
+        }
+
+        .outer1 {
+            margin: 1px 5px 1px 1px;
+            display: inline-block;
+            border-radius: 25px;
+            background: #73AD21;
+            justify-content: center;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .bg {
+            animation: slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+            bottom: 0;
+            left: -50%;
+            opacity: .5;
             position: fixed;
-            top: 2rem;
-            right: 2rem;
-            font-size: 8.75vw;
-            line-height: .8;
-            margin-top: 0;
-            text-align: center;
+            right: -50%;
+            top: 0;
+            z-index: -1;
         }
 
-
-
-    main {
-        background: #fff;
-        position: relative;
-        border: 1px solid #fff;
-        font-family: 'IM Fell French Canon Pro';
-        font-size: 1.4rem;
-        padding: 2rem 25%;
-        line-height: 1.6;
-    }
-
-    @media all and (max-width: 400px) {
-        main {
-            padding: 2rem;
+        .bg2 {
+            animation-direction: alternate-reverse;
+            animation-duration: 4s;
         }
-    }
-</style>
 
-<base href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/">
+        .bg3 {
+            animation-duration: 5s;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-25%);
+            }
+
+            100% {
+                transform: translateX(25%);
+            }
+        }
+    </style>
+    <div class="bg"></div>
+    <div class="bg bg2">
+        <br />
+        <br />
+        <br />
+    </div>
+    <div class="bg bg3">
+        <br />
+        <br />
+        <br />
+    </div>
 <header>
-    <h1>Onstitute</h1>
-    <img src="mountain-range-front.png">
+    <h1 style="text-align: center; font-size: 55px;">About Knowledge Inc.</h1>
 </header>
 <main>
-    <p>Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. 
+    <p style="font-size: 16px; background-color: #FFFFFF">Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. Onsitute is a educational platform for studets, teachers, and anyone who wants to expand their knowledge in academia. 
 </main>
