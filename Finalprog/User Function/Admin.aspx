@@ -7,7 +7,7 @@
     <%--    <link rel="stylesheet" href="Navigation Bar.css" />--%>
     <title></title>
 </head>
-<body>
+<body class="bg">
     <style>
         .rcorners1 {
             border-radius: 25px;
@@ -48,15 +48,12 @@
         }
 
         .bg {
-            animation: slide 3s ease-in-out infinite alternate;
-            background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
-            bottom: 0;
-            left: -50%;
-            opacity: .5;
-            position: fixed;
-            right: -50%;
-            top: 0;
-            z-index: -1;
+            background-color: #0093E9;
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .bg2 {
@@ -142,14 +139,6 @@
             padding: 5px;
         }
     </style>
-
-    <div class="bg"></div>
-    <div class="bg bg2"></div>
-    <div class="bg bg3">
-        <br />
-        <br />
-        <br />
-    </div>
     <form id="form1" runat="server">
         <header>
             <%--<asp:Button ID="btnLogout" runat="server" Height="25px" OnClick="btnLogout_Click" Text="Log Out" Width="130px" BorderStyle="None" />
