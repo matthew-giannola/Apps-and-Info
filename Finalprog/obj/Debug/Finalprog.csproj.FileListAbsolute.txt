@@ -999,5 +999,4 @@ C:\Users\hzant\Documents\Design and Implementation\11-28\papa\Finalprog\obj\Debu
 C:\Users\hzant\Documents\Design and Implementation\11-28\papa\Finalprog\obj\Debug\Finalprog.csproj.CopyComplete
 C:\Users\hzant\Documents\Design and Implementation\11-28\papa\Finalprog\obj\Debug\Finalprog.dll
 C:\Users\hzant\Documents\Design and Implementation\11-28\papa\Finalprog\obj\Debug\Finalprog.pdb
-C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csprojAssemblyReference.cache
-C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csproj.CopyComplete
+C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csproj.AssemblyReference.cache

@@ -18,12 +18,7 @@ namespace Finalprog
     public partial class REsults : System.Web.UI.Page
     {
         public static UserDataClassesDataContext us = new UserDataClassesDataContext();
-        public LinkButton[] CourseNames = new LinkButton[10];
-        public System.Web.UI.WebControls.Label[] Descriptions = new System.Web.UI.WebControls.Label[10];
-        public System.Web.UI.WebControls.Label[] CourseIDs = new System.Web.UI.WebControls.Label[10];
-        public int[] CoursesID = new int[10];
-
-        
+        //runs on page load.
         protected void Page_Load(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(Login.currentUser))
@@ -50,6 +45,7 @@ namespace Finalprog
                 }
             }
         }
+        //searches the database according to the search criteria.
         private void Search(string searchText)
         {
             //Returns if searchtext is null
@@ -71,17 +67,15 @@ namespace Finalprog
             //creating of the tiles.
             foreach (var c in search)
             {
-                //Deletion(i);
                 String CourseID = c.Id.ToString();
-                CoursesID[i] = Int32.Parse(CourseID);
                 String CourseName = c.courseTitle.ToString();
                 String Description = c.description.ToString();
-                CreateButton_CourseName(i, CourseName, CourseID);
-                CreateLabel_CourseID(i, CourseID);
-                CreateLabel_Description(i, Description, CourseID);
+                String ProfessorName = c.professorName.ToString();
+                Create_Result(CourseID, CourseName, Description, ProfessorName);
                 i++;
             }
         }
+        //checks to make sure the search is valid.
         private bool searchCheck(string search)
         {
             if (search != null && !String.IsNullOrWhiteSpace(txtResultsSearch.Text))
@@ -93,6 +87,7 @@ namespace Finalprog
                 return false;
             }
         }
+        //researches the database for the new search criteria.
         protected void btnResultsSearch_Click(object sender, EventArgs e)
         {
             string searchText = txtResultsSearch.Text;
@@ -104,70 +99,62 @@ namespace Finalprog
                 Response.Redirect("REsults.aspx");
             }
         }
-        private void Deletion(int i)
+        //creates the result, will run the amount of times equal to the amount of results found.
+        private void Create_Result(string CourseID, string CourseName, string Description, string ProfessorName)
         {
-            Page.Controls.Remove(CourseNames[i]);
-            Page.Controls.Remove(CourseIDs[i]);
-            Page.Controls.Remove(Descriptions[i]);
-        }
-        //Code block for the dynmaic adding of the tiles.
-        private void CreateButton_CourseName(int i, string CourseName, string CourseID)
-        {
+            //creates the link button for the link to take you to the course page.
             LinkButton Course_Name = new LinkButton
             {
-                ID = "hl_CourseName" + i.ToString(),
+                ID = "hl_CourseName" + CourseID,
                 Text = CourseName + "<br />",
                 CssClass = "hyperlink"
             };
-            Course_Name.Click += new EventHandler((sender, e) => Button_Click(sender, e, Int32.Parse(CourseID)));
-            CourseNames[i] = Course_Name;
-            divResults.Controls.Add(Course_Name);
-        }
-        private void CreateLabel_CourseID(int i, string CourseID)
-        {
+            //creates the label for the course ID.
             System.Web.UI.WebControls.Label Course_ID = new System.Web.UI.WebControls.Label
             {
                 ID = "lbl_CourseID" + CourseID,
                 Text = CourseID + " - ",
                 CssClass = "description"
             };
-            CourseIDs[i] = Course_ID;
-            divResults.Controls.Add(Course_ID);
-        }
-        private void CreateLabel_Description(int i, string Description, string CourseID)
-        {
+            //creates the label for the professor name.
+            System.Web.UI.WebControls.Label professor = new System.Web.UI.WebControls.Label
+            {
+                ID = "lbl_Professor" + CourseID,
+                Text = ProfessorName + " - ",
+                CssClass = "description"
+            };
+            //creates the label for the description
             System.Web.UI.WebControls.Label description = new System.Web.UI.WebControls.Label
             {
                 ID = "lbl_Description" + CourseID,
                 Text = Description + "<br /><br />",
                 CssClass = "description"
             };
-            Descriptions[i] = description;
+            //adds the button click event and adding in the courseID variable to send with it.
+            Course_Name.Click += new EventHandler((sender, e) => Button_Click(sender, e, Int32.Parse(CourseID)));
+            //adds all of the controls to the page.
+            divResults.Controls.Add(Course_Name);
+            divResults.Controls.Add(Course_ID);
+            divResults.Controls.Add(professor);
             divResults.Controls.Add(description);
         }
-
-
-        //Button clicking Functions
+        //redirects you to the course page on the click event for the link.
         private void Button_Click(object sender, EventArgs e, int CourseID)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                if (CoursesID[i] == CourseID)
-                {
-                    CoursePage.course = CourseID;
-                    Response.Redirect("~/Course Function/CoursePage.aspx");
-                }
-            }
+            CoursePage.course = CourseID;
+            Response.Redirect("~/Course Function/CoursePage.aspx");
         }
-        //Normal Button Click Events
+        //redirects to the admin page on click.
         protected void btnAdmin_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User Function/Admin.aspx");
         }
+        //redirects to the user page on click.
         protected void btnUser_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/User Function/UserPage.aspx");
         }
+        //logs out the user and redirects them to the login screen.
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             user eo = (from f in us.users 
@@ -177,6 +164,7 @@ namespace Finalprog
             Login.currentUser = "";
             Response.Redirect("~/User Function/Login.aspx");
         }
+        //to bypass and error that is thrown when dynamically creating the linkbutton.
         public override void VerifyRenderingInServerForm(System.Web.UI.Control control){/*there should be nothing in this*/}
     }
 }
