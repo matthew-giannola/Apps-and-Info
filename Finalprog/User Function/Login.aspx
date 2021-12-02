@@ -6,10 +6,9 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        
         #form1 {
-            position: relative;
-            min-height: 100vh;
+            position:relative;
+            min-height: 60vh;
         }
 
         #content-wrap {
@@ -60,10 +59,6 @@
 
         @import url('https://fonts.googleapis.com/css?family=Playfair+Display:900');
 
-        svg {
-            background: #ebe7e0;
-        }
-
         text {
             fill: #35322a;
             filter: url('#money');
@@ -80,96 +75,105 @@
             min-height: 100vh;
             min-width: 600px;
         }
+
     </style>
 </head>
 
 <body>
+    <style>
+        .rcorners1 {
+            border-radius: 25px;
+            background:;
+        }
 
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            text-align: left;
+            margin: 1px;
+        }
 
-    <svg width='900' height='200'>
-        <filter id='money'>
-            <feMorphology in='SourceGraphic' operator='dilate' radius='2' result='expand' />
+        .outer {
+            margin: 1px 5px 1px 1px;
+            display: inline-block;
+            border-radius: 25px;
+            background: #73AD21;
+            padding: 20px;
+        }
 
-            <feOffset in='expand' dx='1' dy='1' result='shadow_1' />
-            <feOffset in='expand' dx='2' dy='2' result='shadow_2' />
-            <feOffset in='expand' dx='3' dy='3' result='shadow_3' />
-            <feOffset in='expand' dx='4' dy='4' result='shadow_4' />
-            <feOffset in='expand' dx='5' dy='5' result='shadow_5' />
-            <feOffset in='expand' dx='6' dy='6' result='shadow_6' />
-            <feOffset in='expand' dx='7' dy='7' result='shadow_7' />
+        .outer1 {
+            margin: 1px 5px 1px 1px;
+            display: inline-block;
+            border-radius: 25px;
+            background: #73AD21;
+            justify-content: center;
+        }
 
-            <feMerge result='shadow'>
-                <feMergeNode in='expand' />
-                <feMergeNode in='shadow_1' />
-                <feMergeNode in='shadow_2' />
-                <feMergeNode in='shadow_3' />
-                <feMergeNode in='shadow_4' />
-                <feMergeNode in='shadow_5' />
-                <feMergeNode in='shadow_6' />
-                <feMergeNode in='shadow_7' />
-            </feMerge>
+        html {
+            height: 100%;
+        }
 
-            <feFlood flood-color='#ebe7e0' />
-            <feComposite in2='shadow' operator='in' result='shadow' />
+        body {
+            margin: 0;
+        }
 
-            <feMorphology in='shadow' operator='dilate' radius='1' result='border' />
-            <feFlood flood-color='#35322a' result='border_color' />
-            <feComposite in2='border' operator='in' result='border' />
+        .bg {
+            animation: slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+            bottom: 0;
+            left: -50%;
+            opacity: .5;
+            position: fixed;
+            right: -50%;
+            top: 0;
+            z-index: -1;
+        }
 
-            <feOffset in='border' dx='1' dy='1' result='secondShadow_1' />
-            <feOffset in='border' dx='2' dy='2' result='secondShadow_2' />
-            <feOffset in='border' dx='3' dy='3' result='secondShadow_3' />
-            <feOffset in='border' dx='4' dy='4' result='secondShadow_4' />
-            <feOffset in='border' dx='5' dy='5' result='secondShadow_5' />
-            <feOffset in='border' dx='6' dy='6' result='secondShadow_6' />
-            <feOffset in='border' dx='7' dy='7' result='secondShadow_7' />
-            <feOffset in='border' dx='8' dy='8' result='secondShadow_8' />
-            <feOffset in='border' dx='9' dy='9' result='secondShadow_9' />
-            <feOffset in='border' dx='10' dy='10' result='secondShadow_10' />
-            <feOffset in='border' dx='11' dy='11' result='secondShadow_11' />
+        .bg2 {
+            animation-direction: alternate-reverse;
+            animation-duration: 4s;
+        }
 
-            <feMerge result='secondShadow'>
-                <feMergeNode in='border' />
-                <feMergeNode in='secondShadow_1' />
-                <feMergeNode in='secondShadow_2' />
-                <feMergeNode in='secondShadow_3' />
-                <feMergeNode in='secondShadow_4' />
-                <feMergeNode in='secondShadow_5' />
-                <feMergeNode in='secondShadow_6' />
-                <feMergeNode in='secondShadow_7' />
-                <feMergeNode in='secondShadow_8' />
-                <feMergeNode in='secondShadow_9' />
-                <feMergeNode in='secondShadow_10' />
-                <feMergeNode in='secondShadow_11' />
-            </feMerge>
+        .bg3 {
+            animation-duration: 5s;
+        }
 
-            <feImage x='0' y='0' width='900' height='275' xlink:href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/stripes.svg' />
-            <feComposite in2='secondShadow' operator='in' result='secondShadow' />
+        @keyframes slide {
+            0% {
+                transform: translateX(-25%);
+            }
 
-            <feMerge>
-                <feMergeNode in='secondShadow' />
-                <feMergeNode in='border' />
-                <feMergeNode in='shadow' />
-                <feMergeNode in='SourceGraphic' />
-            </feMerge>
-        </filter>
+            100% {
+                transform: translateX(25%);
+            }
+        }
+    </style>
+
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3">
+        <br />
+        <br />
+        <br />
+    </div>
 
         <text dominant-baseline='middle' text-anchor='middle' x='50%' y='50%'>
-    ΦNSTITUTE
+    Knowledge Inc.
   </text>
-    </svg>
 
     <form id="form1" runat="server">
         <div id="content-wrap" style="text-align: center; font-size: xx-large">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <asp:Label ID="Label1" runat="server" ForeColor="Red" Style="font-size: large" Text="Username or Password Incorrect" Visible="False"></asp:Label>
             <br />
             Username:
-            <asp:TextBox ID="txtuser" runat="server" Height="20px" OnTextChanged="TextBox1_TextChanged" Width="160px"></asp:TextBox>
+            <asp:TextBox class="outer" ID="txtuser" runat="server" Height="20px" OnTextChanged="TextBox1_TextChanged" BorderStyle="Solid" Width="331px" Font-Names="Arial" BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="Medium"></asp:TextBox>
             <br />
             <br />
             Password:
-            <asp:TextBox ID="txtpass" runat="server" Height="20px" OnTextChanged="TextBox1_TextChanged" Width="160px"></asp:TextBox>
+            <asp:TextBox class="outer" ID="txtpass" runat="server" BorderStyle="Solid" Width="331px" Font-Names="Arial" BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="Medium"></asp:TextBox>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:HyperLink ID="hyperForgot" runat="server" Style="font-size: small" NavigateUrl="~/User Function/ForgotPassword.aspx">Forgot Password?</asp:HyperLink>
@@ -177,10 +181,10 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnLogin" runat="server" Height="32px" OnClick="btnLogin_Click" Text="Log In" Width="91px" />
+            <asp:Button class="outer" ID="btnLogin" runat="server" Height="60px" OnClick="btnLogin_Click" Text="Log In" BorderStyle="Solid" Width="160px" Font-Names="Arial" BackColor="Transparent" BorderColor="Black" Font-Size="Medium" BorderWidth="4px" Font-Bold="True"/>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnCreate" runat="server" Height="32px" OnClick="btnCreate_Click" Text="Create Account" Width="106px" />
+            <asp:Button class="outer" ID="btnCreate" runat="server" Height="60px" OnClick="btnCreate_Click" Text="Create Account" BorderStyle="Solid" Width="160px" Font-Names="Arial" BackColor="Transparent" BorderColor="Black" Font-Size="Medium" BorderWidth="4px" Font-Bold="True" />
         </div>
         <footer id="footer" style="height: 113px;">
             <div class="credits">

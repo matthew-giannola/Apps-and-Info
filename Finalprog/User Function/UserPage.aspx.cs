@@ -32,6 +32,8 @@ namespace Finalprog
                 if (!String.IsNullOrWhiteSpace(eo.color))
                 {
                     formBack.Attributes["style"] = "background-color:" + eo.color;
+                    
+                    formBack.Attributes[".outer1"] = "background:" + eo.color;
                 }
                 if(role == "Admin")
                 {
