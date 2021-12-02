@@ -16,13 +16,14 @@
 &nbsp;<hr />
             <br />
             <br />
-            <asp:Label ID="quizTitle" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="quizTitle" runat="server" Text="Label" Font-Bold="True"></asp:Label>
         </div>
         <asp:Panel ID="Panel1" runat="server" style="margin-left: 304px">
-            <asp:Label ID="scoreLabel" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:Label ID="scoreLBL" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Score: " Visible="False"></asp:Label>
+            <asp:Label ID="scoreLabel" runat="server" Text="Label" Visible="False" Font-Bold="True" Font-Size="X-Large"></asp:Label>
         </asp:Panel>
         <br />
-        <asp:Label ID="Question_1" runat="server" Text="Question_1"></asp:Label>
+        <asp:Label ID="Question_1" runat="server" Text="Question_1" Font-Bold="True"></asp:Label>
         <asp:RadioButtonList ID="RadioButtonList1" runat="server" Width="622px">
             <asp:ListItem>A)</asp:ListItem>
             <asp:ListItem>B)</asp:ListItem>
@@ -30,7 +31,7 @@
             <asp:ListItem>D)</asp:ListItem>
         </asp:RadioButtonList>
         <br />
-        <asp:Label ID="Question_2" runat="server" Text="Question 2"></asp:Label>
+        <asp:Label ID="Question_2" runat="server" Text="Question 2" Font-Bold="True"></asp:Label>
         <br />
         <asp:RadioButtonList ID="RadioButtonList2" runat="server" Width="683px">
             <asp:ListItem>A)</asp:ListItem>
@@ -39,7 +40,7 @@
             <asp:ListItem>D)</asp:ListItem>
         </asp:RadioButtonList>
         <br />
-        <asp:Label ID="Question_3" runat="server" Text="Question 3"></asp:Label>
+        <asp:Label ID="Question_3" runat="server" Text="Question 3" Font-Bold="True"></asp:Label>
         <br />
         <asp:RadioButtonList ID="RadioButtonList3" runat="server" Width="624px">
             <asp:ListItem>A)</asp:ListItem>
@@ -48,7 +49,7 @@
             <asp:ListItem>D)</asp:ListItem>
         </asp:RadioButtonList>
         <br />
-        <asp:Label ID="Question_4" runat="server" Text="Question 4"></asp:Label>
+        <asp:Label ID="Question_4" runat="server" Text="Question 4" Font-Bold="True"></asp:Label>
         <br />
         <asp:RadioButtonList ID="RadioButtonList4" runat="server" Width="652px">
             <asp:ListItem>A)</asp:ListItem>
@@ -57,7 +58,7 @@
             <asp:ListItem>D)</asp:ListItem>
         </asp:RadioButtonList>
         <br />
-        <asp:Label ID="Question_5" runat="server" Text="Question 5"></asp:Label>
+        <asp:Label ID="Question_5" runat="server" Text="Question 5" Font-Bold="True"></asp:Label>
         <br />
         <asp:RadioButtonList ID="RadioButtonList5" runat="server" Width="599px">
             <asp:ListItem>A)</asp:ListItem>

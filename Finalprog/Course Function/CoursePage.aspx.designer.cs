@@ -69,6 +69,33 @@ namespace Finalprog
         protected global::System.Web.UI.WebControls.Label lblCourse;
 
         /// <summary>
+        /// Panel11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel11;
+
+        /// <summary>
+        /// dailyAnn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dailyAnn;
+
+        /// <summary>
+        /// announceLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label announceLabel;
+
+        /// <summary>
         /// test control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace Finalprog
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel2;
+
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
         /// descriptionLabel control.
@@ -159,31 +195,22 @@ namespace Finalprog
         protected global::System.Web.UI.WebControls.Panel Panel6;
 
         /// <summary>
-        /// dailyAnn control.
+        /// Panel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label dailyAnn;
+        protected global::System.Web.UI.WebControls.Panel Panel8;
 
         /// <summary>
-        /// announceLabel control.
+        /// Panel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label announceLabel;
-
-        /// <summary>
-        /// Panel7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel7;
+        protected global::System.Web.UI.WebControls.Panel Panel10;
 
         /// <summary>
         /// testButton control.

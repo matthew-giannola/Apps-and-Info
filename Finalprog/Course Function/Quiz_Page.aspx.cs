@@ -164,7 +164,8 @@ namespace Finalprog
 
             //Display Score
             scoreLabel.Visible = true;
-            scoreLabel.Text = "Score: " + score + "/" + total;
+            scoreLBL.Visible = true;
+            scoreLabel.Text = + score + "/" + total;
             Button1.Enabled = false;
         }
         protected void btnAdmin_Click(object sender, EventArgs e)
