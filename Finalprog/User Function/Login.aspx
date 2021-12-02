@@ -133,11 +133,11 @@
 
         .bg2 {
             animation-direction: alternate-reverse;
-            animation-duration: 4s;
+            animation-duration: 10s;
         }
 
         .bg3 {
-            animation-duration: 5s;
+            animation-duration: 12s;
         }
 
         @keyframes slide {
