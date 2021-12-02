@@ -116,34 +116,34 @@ namespace Finalprog
             LinkButton Course_Name = new LinkButton
             {
                 ID = "hl_CourseName" + i.ToString(),
-                Text = CourseName,
-                CssClass = "Tile"
+                Text = CourseName + "<br />",
+                CssClass = "hyperlink"
             };
             Course_Name.Click += new EventHandler((sender, e) => Button_Click(sender, e, Int32.Parse(CourseID)));
             CourseNames[i] = Course_Name;
-            Page.Controls.Add(Course_Name);
+            divResults.Controls.Add(Course_Name);
         }
         private void CreateLabel_CourseID(int i, string CourseID)
         {
             System.Web.UI.WebControls.Label Course_ID = new System.Web.UI.WebControls.Label
             {
                 ID = "lbl_CourseID" + CourseID,
-                Text = CourseID,
-                CssClass = "Tile"
+                Text = CourseID + " - ",
+                CssClass = "description"
             };
             CourseIDs[i] = Course_ID;
-            Page.Controls.Add(Course_ID);
+            divResults.Controls.Add(Course_ID);
         }
         private void CreateLabel_Description(int i, string Description, string CourseID)
         {
             System.Web.UI.WebControls.Label description = new System.Web.UI.WebControls.Label
             {
                 ID = "lbl_Description" + CourseID,
-                Text = Description,
-                CssClass = "Tile"
+                Text = Description + "<br /><br />",
+                CssClass = "description"
             };
             Descriptions[i] = description;
-            Page.Controls.Add(description);
+            divResults.Controls.Add(description);
         }
 
 
