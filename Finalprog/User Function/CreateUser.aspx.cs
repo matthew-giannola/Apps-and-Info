@@ -75,7 +75,6 @@ namespace Finalprog
                         first_name = txtFirstname.Text,
                         last_name = txtLastname.Text,
                         phone_number = txtPhone.Text,
-                        role = dropRole.SelectedValue,
                         organization = DropDownList3.SelectedValue,
                         degree = DropDownList2.SelectedValue,
                         email = txtEmail.Text,
