@@ -819,7 +819,6 @@ C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\bin\roslyn\VBCSCompiler.
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csproj.AssemblyReference.cache
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csproj.CoreCompileInputs.cache
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.dll
 C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.pdb
@@ -1000,3 +999,5 @@ C:\Users\hzant\Documents\Design and Implementation\11-28\papa\Finalprog\obj\Debu
 C:\Users\hzant\Documents\Design and Implementation\11-28\papa\Finalprog\obj\Debug\Finalprog.csproj.CopyComplete
 C:\Users\hzant\Documents\Design and Implementation\11-28\papa\Finalprog\obj\Debug\Finalprog.dll
 C:\Users\hzant\Documents\Design and Implementation\11-28\papa\Finalprog\obj\Debug\Finalprog.pdb
+C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csprojAssemblyReference.cache
+C:\Users\logan\Documents\GitHub\Apps-and-Info\Finalprog\obj\Debug\Finalprog.csproj.CopyComplete

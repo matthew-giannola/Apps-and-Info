@@ -17,7 +17,7 @@ namespace Finalprog
         public static Int32 course;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+        
             getRole();
             quizCheck();
             loadVideo();
@@ -94,9 +94,9 @@ namespace Finalprog
             }
             else
             {
-                zoomLabel.Text = zoom;
+                zoomLabel.Text =  zoom;
             }
-            teachLabel.Text = "Teacher: " + teacher;
+            teachLabel.Text = teacher;
         }
         public void updateCourse(Int32 courseId)
         {

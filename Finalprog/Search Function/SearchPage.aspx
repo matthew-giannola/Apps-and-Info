@@ -8,9 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+       
         <style>
-            .rcorners1 {
+        .rcorners1 {
         border-radius: 25px;
         background: ;
         }
@@ -30,14 +30,16 @@
         border-radius: 25px;
         background: #73AD21;
         padding: 20px;
+        outline: none;
         }
 
         .outer1 {
-        margin: 1px 5px 1px 1px;
+        margin: 5px 5px 5px 5px;
         display: inline-block;
         border-radius: 25px;
         background: #73AD21;
         justify-content: center;
+        outline: none;
         }
 
         html {
@@ -49,7 +51,7 @@
         }
         
         .bg {
-          animation:slide 3s ease-in-out infinite alternate;
+          animation:slide 10s ease-in-out infinite alternate;
           background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
           bottom:0;
           left:-50%;
@@ -62,11 +64,11 @@
         
         .bg2 {
           animation-direction:alternate-reverse;
-          animation-duration:4s;
+          animation-duration:10s;
         }
         
         .bg3 {
-          animation-duration:5s;
+          animation-duration:12s;
         }
         
         @keyframes slide {
@@ -94,7 +96,7 @@
 
         <div class ="center" >
                <div id ="searchBox">
-                    <asp:TextBox class="outer" Padding="20px" ID="txtSearch" runat="server" BorderStyle="Solid" Width="331px" Height="18px" Font-Names="Arial" BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="Large"></asp:TextBox>
+                    <asp:TextBox class="outer" Padding="20px" ID="txtSearch" runat="server" BorderStyle="Solid" Width="331px" Height="18px" Font-Names="Arial" BackColor="#CCCCCC" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="Large"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;
                     <asp:Button class="outer" ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" BorderStyle="Solid" Height="66px" Width="112px" Font-Names="Arial" BackColor="Transparent" BorderColor="Black" Font-Size="Large" BorderWidth="4px" Font-Bold="True" />
                 </div>
