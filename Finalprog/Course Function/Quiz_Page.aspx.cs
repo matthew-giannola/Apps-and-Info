@@ -16,7 +16,7 @@ namespace Finalprog
         private static Int32 total = 5;
         private int[] correctanswers = new int[5];
         private int[] useranswers = new int[5];
-
+        private int localuserId;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(Login.currentUser))
@@ -27,6 +27,7 @@ namespace Finalprog
                        where f.username == Login.currentUser
                        select f).SingleOrDefault();
             var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
+            localuserId = eo.Id;
 
             if (eo != null)
             {
@@ -167,6 +168,15 @@ namespace Finalprog
             scoreLBL.Visible = true;
             scoreLabel.Text = + score + "/" + total;
             Button1.Enabled = false;
+
+            quizAttempts qA = new quizAttempts
+            {
+                score = score,
+                userID = localuserId,
+                quizID = quizid
+            };
+            us.quizAttempts.InsertOnSubmit(qA);
+            us.SubmitChanges();
         }
         protected void btnAdmin_Click(object sender, EventArgs e)
         {

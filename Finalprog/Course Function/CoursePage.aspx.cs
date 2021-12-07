@@ -15,6 +15,7 @@ namespace Finalprog
     {
         public static UserDataClassesDataContext us = new UserDataClassesDataContext();
         public static Int32 course;
+        private int localuserid;
         protected void Page_Load(object sender, EventArgs e)
         {
         
@@ -34,7 +35,7 @@ namespace Finalprog
                        where f.username == Login.currentUser
                        select f).SingleOrDefault();
             var role = us.Roles.Where(a => a.Id == eo.RoleID).Select(a => a.Description).FirstOrDefault();
-
+            localuserid = eo.Id;
             if (eo != null)
             {
                 if (role == "Admin")
@@ -48,6 +49,10 @@ namespace Finalprog
         private void quizCheck()
         {
             if (!us.quizzes.Where(a => a.courseid == course).Any())
+            {
+                testButton.Visible = false;
+            }
+            if (us.quizAttempts.Where(a => a.userID == localuserid).Any())
             {
                 testButton.Visible = false;
             }

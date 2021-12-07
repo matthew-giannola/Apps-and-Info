@@ -30,21 +30,24 @@ namespace Finalprog
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Insertquizanswer(quizanswer instance);
-    partial void Updatequizanswer(quizanswer instance);
-    partial void Deletequizanswer(quizanswer instance);
-    partial void Insertquizze(quizze instance);
-    partial void Updatequizze(quizze instance);
-    partial void Deletequizze(quizze instance);
-    partial void Insertquizquestion(quizquestion instance);
-    partial void Updatequizquestion(quizquestion instance);
-    partial void Deletequizquestion(quizquestion instance);
-    partial void InsertRole(Role instance);
-    partial void UpdateRole(Role instance);
-    partial void DeleteRole(Role instance);
     partial void InsertClass(Class instance);
     partial void UpdateClass(Class instance);
     partial void DeleteClass(Class instance);
+    partial void Insertquizanswer(quizanswer instance);
+    partial void Updatequizanswer(quizanswer instance);
+    partial void Deletequizanswer(quizanswer instance);
+    partial void InsertquizAttempts(quizAttempts instance);
+    partial void UpdatequizAttempts(quizAttempts instance);
+    partial void DeletequizAttempts(quizAttempts instance);
+    partial void Insertquizquestion(quizquestion instance);
+    partial void Updatequizquestion(quizquestion instance);
+    partial void Deletequizquestion(quizquestion instance);
+    partial void Insertquizze(quizze instance);
+    partial void Updatequizze(quizze instance);
+    partial void Deletequizze(quizze instance);
+    partial void InsertRole(Role instance);
+    partial void UpdateRole(Role instance);
+    partial void DeleteRole(Role instance);
     partial void Insertuser(user instance);
     partial void Updateuser(user instance);
     partial void Deleteuser(user instance);
@@ -80,6 +83,14 @@ namespace Finalprog
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<Class> Classes
+		{
+			get
+			{
+				return this.GetTable<Class>();
+			}
+		}
+		
 		public System.Data.Linq.Table<quizanswer> quizanswers
 		{
 			get
@@ -88,11 +99,11 @@ namespace Finalprog
 			}
 		}
 		
-		public System.Data.Linq.Table<quizze> quizzes
+		public System.Data.Linq.Table<quizAttempts> quizAttempts
 		{
 			get
 			{
-				return this.GetTable<quizze>();
+				return this.GetTable<quizAttempts>();
 			}
 		}
 		
@@ -104,19 +115,19 @@ namespace Finalprog
 			}
 		}
 		
+		public System.Data.Linq.Table<quizze> quizzes
+		{
+			get
+			{
+				return this.GetTable<quizze>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Role> Roles
 		{
 			get
 			{
 				return this.GetTable<Role>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Class> Classes
-		{
-			get
-			{
-				return this.GetTable<Class>();
 			}
 		}
 		
@@ -126,6 +137,336 @@ namespace Finalprog
 			{
 				return this.GetTable<user>();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Classes")]
+	public partial class Class : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _courseTitle;
+		
+		private string _professorName;
+		
+		private string _description;
+		
+		private string _videourl;
+		
+		private System.Nullable<int> _lectureHours;
+		
+		private System.Nullable<int> _studentNumber;
+		
+		private System.Nullable<int> _credits;
+		
+		private System.Nullable<int> _review;
+		
+		private string _zoomLink;
+		
+		private string _announcementMessage;
+		
+		private EntitySet<quizze> _quizzes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OncourseTitleChanging(string value);
+    partial void OncourseTitleChanged();
+    partial void OnprofessorNameChanging(string value);
+    partial void OnprofessorNameChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OnvideourlChanging(string value);
+    partial void OnvideourlChanged();
+    partial void OnlectureHoursChanging(System.Nullable<int> value);
+    partial void OnlectureHoursChanged();
+    partial void OnstudentNumberChanging(System.Nullable<int> value);
+    partial void OnstudentNumberChanged();
+    partial void OncreditsChanging(System.Nullable<int> value);
+    partial void OncreditsChanged();
+    partial void OnreviewChanging(System.Nullable<int> value);
+    partial void OnreviewChanged();
+    partial void OnzoomLinkChanging(string value);
+    partial void OnzoomLinkChanged();
+    partial void OnannouncementMessageChanging(string value);
+    partial void OnannouncementMessageChanged();
+    #endregion
+		
+		public Class()
+		{
+			this._quizzes = new EntitySet<quizze>(new Action<quizze>(this.attach_quizzes), new Action<quizze>(this.detach_quizzes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_courseTitle", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string courseTitle
+		{
+			get
+			{
+				return this._courseTitle;
+			}
+			set
+			{
+				if ((this._courseTitle != value))
+				{
+					this.OncourseTitleChanging(value);
+					this.SendPropertyChanging();
+					this._courseTitle = value;
+					this.SendPropertyChanged("courseTitle");
+					this.OncourseTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_professorName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string professorName
+		{
+			get
+			{
+				return this._professorName;
+			}
+			set
+			{
+				if ((this._professorName != value))
+				{
+					this.OnprofessorNameChanging(value);
+					this.SendPropertyChanging();
+					this._professorName = value;
+					this.SendPropertyChanged("professorName");
+					this.OnprofessorNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_videourl", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string videourl
+		{
+			get
+			{
+				return this._videourl;
+			}
+			set
+			{
+				if ((this._videourl != value))
+				{
+					this.OnvideourlChanging(value);
+					this.SendPropertyChanging();
+					this._videourl = value;
+					this.SendPropertyChanged("videourl");
+					this.OnvideourlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lectureHours", DbType="Int")]
+		public System.Nullable<int> lectureHours
+		{
+			get
+			{
+				return this._lectureHours;
+			}
+			set
+			{
+				if ((this._lectureHours != value))
+				{
+					this.OnlectureHoursChanging(value);
+					this.SendPropertyChanging();
+					this._lectureHours = value;
+					this.SendPropertyChanged("lectureHours");
+					this.OnlectureHoursChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studentNumber", DbType="Int")]
+		public System.Nullable<int> studentNumber
+		{
+			get
+			{
+				return this._studentNumber;
+			}
+			set
+			{
+				if ((this._studentNumber != value))
+				{
+					this.OnstudentNumberChanging(value);
+					this.SendPropertyChanging();
+					this._studentNumber = value;
+					this.SendPropertyChanged("studentNumber");
+					this.OnstudentNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_credits", DbType="Int")]
+		public System.Nullable<int> credits
+		{
+			get
+			{
+				return this._credits;
+			}
+			set
+			{
+				if ((this._credits != value))
+				{
+					this.OncreditsChanging(value);
+					this.SendPropertyChanging();
+					this._credits = value;
+					this.SendPropertyChanged("credits");
+					this.OncreditsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_review", DbType="Int")]
+		public System.Nullable<int> review
+		{
+			get
+			{
+				return this._review;
+			}
+			set
+			{
+				if ((this._review != value))
+				{
+					this.OnreviewChanging(value);
+					this.SendPropertyChanging();
+					this._review = value;
+					this.SendPropertyChanged("review");
+					this.OnreviewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_zoomLink", DbType="NVarChar(MAX)")]
+		public string zoomLink
+		{
+			get
+			{
+				return this._zoomLink;
+			}
+			set
+			{
+				if ((this._zoomLink != value))
+				{
+					this.OnzoomLinkChanging(value);
+					this.SendPropertyChanging();
+					this._zoomLink = value;
+					this.SendPropertyChanged("zoomLink");
+					this.OnzoomLinkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_announcementMessage", DbType="NVarChar(MAX)")]
+		public string announcementMessage
+		{
+			get
+			{
+				return this._announcementMessage;
+			}
+			set
+			{
+				if ((this._announcementMessage != value))
+				{
+					this.OnannouncementMessageChanging(value);
+					this.SendPropertyChanging();
+					this._announcementMessage = value;
+					this.SendPropertyChanged("announcementMessage");
+					this.OnannouncementMessageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_quizze", Storage="_quizzes", ThisKey="Id", OtherKey="courseid")]
+		public EntitySet<quizze> quizzes
+		{
+			get
+			{
+				return this._quizzes;
+			}
+			set
+			{
+				this._quizzes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_quizzes(quizze entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class = this;
+		}
+		
+		private void detach_quizzes(quizze entity)
+		{
+			this.SendPropertyChanging();
+			entity.Class = null;
 		}
 	}
 	
@@ -335,6 +676,356 @@ namespace Finalprog
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.quizAttempts")]
+	public partial class quizAttempts : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _attemptId;
+		
+		private int _score;
+		
+		private int _userID;
+		
+		private int _quizID;
+		
+		private EntityRef<user> _user;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnattemptIdChanging(int value);
+    partial void OnattemptIdChanged();
+    partial void OnscoreChanging(int value);
+    partial void OnscoreChanged();
+    partial void OnuserIDChanging(int value);
+    partial void OnuserIDChanged();
+    partial void OnquizIDChanging(int value);
+    partial void OnquizIDChanged();
+    #endregion
+		
+		public quizAttempts()
+		{
+			this._user = default(EntityRef<user>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_attemptId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int attemptId
+		{
+			get
+			{
+				return this._attemptId;
+			}
+			set
+			{
+				if ((this._attemptId != value))
+				{
+					this.OnattemptIdChanging(value);
+					this.SendPropertyChanging();
+					this._attemptId = value;
+					this.SendPropertyChanged("attemptId");
+					this.OnattemptIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_score", DbType="Int NOT NULL")]
+		public int score
+		{
+			get
+			{
+				return this._score;
+			}
+			set
+			{
+				if ((this._score != value))
+				{
+					this.OnscoreChanging(value);
+					this.SendPropertyChanging();
+					this._score = value;
+					this.SendPropertyChanged("score");
+					this.OnscoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userID", DbType="Int NOT NULL")]
+		public int userID
+		{
+			get
+			{
+				return this._userID;
+			}
+			set
+			{
+				if ((this._userID != value))
+				{
+					if (this._user.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnuserIDChanging(value);
+					this.SendPropertyChanging();
+					this._userID = value;
+					this.SendPropertyChanged("userID");
+					this.OnuserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quizID", DbType="Int NOT NULL")]
+		public int quizID
+		{
+			get
+			{
+				return this._quizID;
+			}
+			set
+			{
+				if ((this._quizID != value))
+				{
+					this.OnquizIDChanging(value);
+					this.SendPropertyChanging();
+					this._quizID = value;
+					this.SendPropertyChanged("quizID");
+					this.OnquizIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_quizAttempt", Storage="_user", ThisKey="userID", OtherKey="Id", IsForeignKey=true)]
+		public user user
+		{
+			get
+			{
+				return this._user.Entity;
+			}
+			set
+			{
+				user previousValue = this._user.Entity;
+				if (((previousValue != value) 
+							|| (this._user.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._user.Entity = null;
+						previousValue.quizAttempts.Remove(this);
+					}
+					this._user.Entity = value;
+					if ((value != null))
+					{
+						value.quizAttempts.Add(this);
+						this._userID = value.Id;
+					}
+					else
+					{
+						this._userID = default(int);
+					}
+					this.SendPropertyChanged("user");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.quizquestions")]
+	public partial class quizquestion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _qid;
+		
+		private string _question;
+		
+		private int _quizid;
+		
+		private int _qcount;
+		
+		private EntityRef<quizze> _quizze;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnqidChanging(int value);
+    partial void OnqidChanged();
+    partial void OnquestionChanging(string value);
+    partial void OnquestionChanged();
+    partial void OnquizidChanging(int value);
+    partial void OnquizidChanged();
+    partial void OnqcountChanging(int value);
+    partial void OnqcountChanged();
+    #endregion
+		
+		public quizquestion()
+		{
+			this._quizze = default(EntityRef<quizze>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int qid
+		{
+			get
+			{
+				return this._qid;
+			}
+			set
+			{
+				if ((this._qid != value))
+				{
+					this.OnqidChanging(value);
+					this.SendPropertyChanging();
+					this._qid = value;
+					this.SendPropertyChanged("qid");
+					this.OnqidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_question", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string question
+		{
+			get
+			{
+				return this._question;
+			}
+			set
+			{
+				if ((this._question != value))
+				{
+					this.OnquestionChanging(value);
+					this.SendPropertyChanging();
+					this._question = value;
+					this.SendPropertyChanged("question");
+					this.OnquestionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quizid", DbType="Int NOT NULL")]
+		public int quizid
+		{
+			get
+			{
+				return this._quizid;
+			}
+			set
+			{
+				if ((this._quizid != value))
+				{
+					if (this._quizze.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnquizidChanging(value);
+					this.SendPropertyChanging();
+					this._quizid = value;
+					this.SendPropertyChanged("quizid");
+					this.OnquizidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qcount", DbType="Int NOT NULL")]
+		public int qcount
+		{
+			get
+			{
+				return this._qcount;
+			}
+			set
+			{
+				if ((this._qcount != value))
+				{
+					this.OnqcountChanging(value);
+					this.SendPropertyChanging();
+					this._qcount = value;
+					this.SendPropertyChanged("qcount");
+					this.OnqcountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="quizze_quizquestion", Storage="_quizze", ThisKey="quizid", OtherKey="quizid", IsForeignKey=true)]
+		public quizze quizze
+		{
+			get
+			{
+				return this._quizze.Entity;
+			}
+			set
+			{
+				quizze previousValue = this._quizze.Entity;
+				if (((previousValue != value) 
+							|| (this._quizze.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._quizze.Entity = null;
+						previousValue.quizquestions.Remove(this);
+					}
+					this._quizze.Entity = value;
+					if ((value != null))
+					{
+						value.quizquestions.Add(this);
+						this._quizid = value.quizid;
+					}
+					else
+					{
+						this._quizid = default(int);
+					}
+					this.SendPropertyChanged("quizze");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.quizzes")]
 	public partial class quizze : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -514,181 +1205,6 @@ namespace Finalprog
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.quizquestions")]
-	public partial class quizquestion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _qid;
-		
-		private string _question;
-		
-		private int _quizid;
-		
-		private int _qcount;
-		
-		private EntityRef<quizze> _quizze;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnqidChanging(int value);
-    partial void OnqidChanged();
-    partial void OnquestionChanging(string value);
-    partial void OnquestionChanged();
-    partial void OnquizidChanging(int value);
-    partial void OnquizidChanged();
-    partial void OnqcountChanging(int value);
-    partial void OnqcountChanged();
-    #endregion
-		
-		public quizquestion()
-		{
-			this._quizze = default(EntityRef<quizze>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qid", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int qid
-		{
-			get
-			{
-				return this._qid;
-			}
-			set
-			{
-				if ((this._qid != value))
-				{
-					this.OnqidChanging(value);
-					this.SendPropertyChanging();
-					this._qid = value;
-					this.SendPropertyChanged("qid");
-					this.OnqidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_question", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string question
-		{
-			get
-			{
-				return this._question;
-			}
-			set
-			{
-				if ((this._question != value))
-				{
-					this.OnquestionChanging(value);
-					this.SendPropertyChanging();
-					this._question = value;
-					this.SendPropertyChanged("question");
-					this.OnquestionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quizid", DbType="Int NOT NULL")]
-		public int quizid
-		{
-			get
-			{
-				return this._quizid;
-			}
-			set
-			{
-				if ((this._quizid != value))
-				{
-					if (this._quizze.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnquizidChanging(value);
-					this.SendPropertyChanging();
-					this._quizid = value;
-					this.SendPropertyChanged("quizid");
-					this.OnquizidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qcount", DbType="Int NOT NULL")]
-		public int qcount
-		{
-			get
-			{
-				return this._qcount;
-			}
-			set
-			{
-				if ((this._qcount != value))
-				{
-					this.OnqcountChanging(value);
-					this.SendPropertyChanging();
-					this._qcount = value;
-					this.SendPropertyChanged("qcount");
-					this.OnqcountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="quizze_quizquestion", Storage="_quizze", ThisKey="quizid", OtherKey="quizid", IsForeignKey=true)]
-		public quizze quizze
-		{
-			get
-			{
-				return this._quizze.Entity;
-			}
-			set
-			{
-				quizze previousValue = this._quizze.Entity;
-				if (((previousValue != value) 
-							|| (this._quizze.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._quizze.Entity = null;
-						previousValue.quizquestions.Remove(this);
-					}
-					this._quizze.Entity = value;
-					if ((value != null))
-					{
-						value.quizquestions.Add(this);
-						this._quizid = value.quizid;
-					}
-					else
-					{
-						this._quizid = default(int);
-					}
-					this.SendPropertyChanged("quizze");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Roles")]
 	public partial class Role : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -803,360 +1319,6 @@ namespace Finalprog
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Classes")]
-	public partial class Class : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _description;
-		
-		private string _videourl;
-		
-		private string _professorName;
-		
-		private string _name;
-		
-		private System.Nullable<int> _lectureHours;
-		
-		private System.Nullable<int> _studentNumber;
-		
-		private System.Nullable<int> _credits;
-		
-		private System.Nullable<int> _review;
-		
-		private string _zoomLink;
-		
-		private string _courseTitle;
-		
-		private string _announcementMessage;
-		
-		private EntitySet<quizze> _quizzes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OnvideourlChanging(string value);
-    partial void OnvideourlChanged();
-    partial void OnprofessorNameChanging(string value);
-    partial void OnprofessorNameChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnlectureHoursChanging(System.Nullable<int> value);
-    partial void OnlectureHoursChanged();
-    partial void OnstudentNumberChanging(System.Nullable<int> value);
-    partial void OnstudentNumberChanged();
-    partial void OncreditsChanging(System.Nullable<int> value);
-    partial void OncreditsChanged();
-    partial void OnreviewChanging(System.Nullable<int> value);
-    partial void OnreviewChanged();
-    partial void OnzoomLinkChanging(string value);
-    partial void OnzoomLinkChanged();
-    partial void OncourseTitleChanging(string value);
-    partial void OncourseTitleChanged();
-    partial void OnannouncementMessageChanging(string value);
-    partial void OnannouncementMessageChanged();
-    #endregion
-		
-		public Class()
-		{
-			this._quizzes = new EntitySet<quizze>(new Action<quizze>(this.attach_quizzes), new Action<quizze>(this.detach_quizzes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_videourl", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string videourl
-		{
-			get
-			{
-				return this._videourl;
-			}
-			set
-			{
-				if ((this._videourl != value))
-				{
-					this.OnvideourlChanging(value);
-					this.SendPropertyChanging();
-					this._videourl = value;
-					this.SendPropertyChanged("videourl");
-					this.OnvideourlChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_professorName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string professorName
-		{
-			get
-			{
-				return this._professorName;
-			}
-			set
-			{
-				if ((this._professorName != value))
-				{
-					this.OnprofessorNameChanging(value);
-					this.SendPropertyChanging();
-					this._professorName = value;
-					this.SendPropertyChanged("professorName");
-					this.OnprofessorNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(4)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lectureHours", DbType="Int")]
-		public System.Nullable<int> lectureHours
-		{
-			get
-			{
-				return this._lectureHours;
-			}
-			set
-			{
-				if ((this._lectureHours != value))
-				{
-					this.OnlectureHoursChanging(value);
-					this.SendPropertyChanging();
-					this._lectureHours = value;
-					this.SendPropertyChanged("lectureHours");
-					this.OnlectureHoursChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_studentNumber", DbType="Int")]
-		public System.Nullable<int> studentNumber
-		{
-			get
-			{
-				return this._studentNumber;
-			}
-			set
-			{
-				if ((this._studentNumber != value))
-				{
-					this.OnstudentNumberChanging(value);
-					this.SendPropertyChanging();
-					this._studentNumber = value;
-					this.SendPropertyChanged("studentNumber");
-					this.OnstudentNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_credits", DbType="Int")]
-		public System.Nullable<int> credits
-		{
-			get
-			{
-				return this._credits;
-			}
-			set
-			{
-				if ((this._credits != value))
-				{
-					this.OncreditsChanging(value);
-					this.SendPropertyChanging();
-					this._credits = value;
-					this.SendPropertyChanged("credits");
-					this.OncreditsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_review", DbType="Int")]
-		public System.Nullable<int> review
-		{
-			get
-			{
-				return this._review;
-			}
-			set
-			{
-				if ((this._review != value))
-				{
-					this.OnreviewChanging(value);
-					this.SendPropertyChanging();
-					this._review = value;
-					this.SendPropertyChanged("review");
-					this.OnreviewChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_zoomLink", DbType="NVarChar(MAX)")]
-		public string zoomLink
-		{
-			get
-			{
-				return this._zoomLink;
-			}
-			set
-			{
-				if ((this._zoomLink != value))
-				{
-					this.OnzoomLinkChanging(value);
-					this.SendPropertyChanging();
-					this._zoomLink = value;
-					this.SendPropertyChanged("zoomLink");
-					this.OnzoomLinkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_courseTitle", DbType="NVarChar(MAX)")]
-		public string courseTitle
-		{
-			get
-			{
-				return this._courseTitle;
-			}
-			set
-			{
-				if ((this._courseTitle != value))
-				{
-					this.OncourseTitleChanging(value);
-					this.SendPropertyChanging();
-					this._courseTitle = value;
-					this.SendPropertyChanged("courseTitle");
-					this.OncourseTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_announcementMessage", DbType="NVarChar(MAX)")]
-		public string announcementMessage
-		{
-			get
-			{
-				return this._announcementMessage;
-			}
-			set
-			{
-				if ((this._announcementMessage != value))
-				{
-					this.OnannouncementMessageChanging(value);
-					this.SendPropertyChanging();
-					this._announcementMessage = value;
-					this.SendPropertyChanged("announcementMessage");
-					this.OnannouncementMessageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Class_quizze", Storage="_quizzes", ThisKey="Id", OtherKey="courseid")]
-		public EntitySet<quizze> quizzes
-		{
-			get
-			{
-				return this._quizzes;
-			}
-			set
-			{
-				this._quizzes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_quizzes(quizze entity)
-		{
-			this.SendPropertyChanging();
-			entity.Class = this;
-		}
-		
-		private void detach_quizzes(quizze entity)
-		{
-			this.SendPropertyChanging();
-			entity.Class = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[user]")]
 	public partial class user : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1186,6 +1348,8 @@ namespace Finalprog
 		private string _color;
 		
 		private System.Nullable<int> _RoleID;
+		
+		private EntitySet<quizAttempts> _quizAttempts;
 		
 		private EntityRef<Role> _Role;
 		
@@ -1221,6 +1385,7 @@ namespace Finalprog
 		
 		public user()
 		{
+			this._quizAttempts = new EntitySet<quizAttempts>(new Action<quizAttempts>(this.attach_quizAttempts), new Action<quizAttempts>(this.detach_quizAttempts));
 			this._Role = default(EntityRef<Role>);
 			OnCreated();
 		}
@@ -1469,6 +1634,19 @@ namespace Finalprog
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_quizAttempt", Storage="_quizAttempts", ThisKey="Id", OtherKey="userID")]
+		public EntitySet<quizAttempts> quizAttempts
+		{
+			get
+			{
+				return this._quizAttempts;
+			}
+			set
+			{
+				this._quizAttempts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_user", Storage="_Role", ThisKey="RoleID", OtherKey="Id", IsForeignKey=true)]
 		public Role Role
 		{
@@ -1521,6 +1699,18 @@ namespace Finalprog
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_quizAttempts(quizAttempts entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_quizAttempts(quizAttempts entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
 		}
 	}
 }
